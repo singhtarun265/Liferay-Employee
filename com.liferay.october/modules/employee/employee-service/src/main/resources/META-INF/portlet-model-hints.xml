@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.liferay.training.employee.model.Department">
+		<field name="deptId" type="long" />
+		<field name="deptName" type="String" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="com.liferay.training.employee.model.Employee">
+		<field name="uuid" type="String" />
+		<field name="empId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+		<field name="name" type="String" />
+		<field name="jobTitle" type="String" />
+		<field name="phoneNo" type="String" />
+		<field name="salary" type="Float" />
+		<field name="deptId" type="long" />
+		<field name="projectId" type="long" />
+	</model>
+	<model name="com.liferay.training.employee.model.Project">
+		<field name="projectId" type="long" />
+		<field name="projectName" type="String" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+</model-hints>

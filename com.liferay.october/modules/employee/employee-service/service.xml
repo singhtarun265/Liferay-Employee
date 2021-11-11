@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.3.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_3_0.dtd">
+
+<service-builder dependency-injector="ds" package-path="com.liferay.training.employee">
+	<namespace>Employee</namespace>
+	<!--<entity data-source="sampleDataSource" local-service="true" name="Foo" remote-service="false" session-factory="sampleSessionFactory" table="foo" tx-manager="sampleTransactionManager uuid="true"">-->
+	<entity name="Employee"  local-service="true"  remote-service="true" uuid="true">
+
+		<!-- PK fields -->
+
+		<column name="empId" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long" />
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long" />
+		<column name="userId" type="long" />
+		<column name="userName" type="String" />
+		<column name="createDate" type="Date" />
+		<column name="modifiedDate" type="Date" />
+
+		<!-- Other fields -->
+
+		<column name="name" type="String"></column>
+        <column name="jobTitle" type="String"></column>
+        <column name="phoneNo" type="String"></column>
+        <column name="salary" type="Float"></column>
+        <column name="deptId" type="long"></column>
+        <column name="projectId" type="long"></column>
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="name" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId" />
+		</finder>
+		<finder name="deptSalary" return-type="Collection">
+			<finder-column name="deptId" />
+			<finder-column name="salary"/>
+		</finder> 
+		<finder name="projectSalary" return-type="Collection">
+			<finder-column name="projectId" />
+			<finder-column name="salary"/>
+		</finder> 
+		<finder name="nameSalary" return-type="Collection">
+			<finder-column name="name" />
+			<finder-column name="salary"/>
+		</finder> 
+		<!-- References -->
+
+		<!-- <reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag" package-path="com.liferay.portlet.asset" /> -->
+	</entity>
+	
+	<entity name="Department" local-service="true">
+        <column name="deptId" type="long" primary="true"></column>
+        <column name="deptName" type="String"></column>
+        <!-- Group instance -->
+        <column name="groupId" type="long" />
+        <!-- Audit fields -->
+        <column name="companyId" type="long" />
+        <column name="userId" type="long" />
+        <column name="userName" type="String" />
+        <column name="createDate" type="Date" />
+        <column name="modifiedDate" type="Date" />
+    </entity>
+    
+    <entity name="Project" local-service="true">
+        <column name="projectId" type="long" primary="true"></column>
+        <column name="projectName" type="String"></column>
+        <!-- Group instance -->
+        <column name="groupId" type="long" />
+        <!-- Audit fields -->
+        <column name="companyId" type="long" />
+        <column name="userId" type="long" />
+        <column name="userName" type="String" />
+        <column name="createDate" type="Date" />
+        <column name="modifiedDate" type="Date" />
+    </entity>
+</service-builder>
