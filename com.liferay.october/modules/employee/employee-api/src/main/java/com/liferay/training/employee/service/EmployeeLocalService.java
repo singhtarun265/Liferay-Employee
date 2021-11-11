@@ -226,6 +226,10 @@ public interface EmployeeLocalService
 	public Employee getEmployee(long empId) throws PortalException;
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<Employee> getEmployeeByGroupIdAndUserIdAsLocal(
+		long userId, long groupId);
+
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<Employee> getEmployeeByGroupIdAsLocal(
 		String groupId, String userId);
 

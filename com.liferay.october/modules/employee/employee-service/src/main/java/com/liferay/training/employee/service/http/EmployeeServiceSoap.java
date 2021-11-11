@@ -179,13 +179,13 @@ public class EmployeeServiceSoap {
 	}
 
 	public static com.liferay.training.employee.model.EmployeeSoap[]
-			getEmployeeByGroupId(String groupId, String userId)
+			getEmployeeByGroupIdAndUserId(long userId, long groupId)
 		throws RemoteException {
 
 		try {
 			java.util.List<com.liferay.training.employee.model.Employee>
-				returnValue = EmployeeServiceUtil.getEmployeeByGroupId(
-					groupId, userId);
+				returnValue = EmployeeServiceUtil.getEmployeeByGroupIdAndUserId(
+					userId, groupId);
 
 			return com.liferay.training.employee.model.EmployeeSoap.
 				toSoapModels(returnValue);

@@ -41,6 +41,7 @@ import com.liferay.training.employee.model.Department;
 import com.liferay.training.employee.service.DepartmentLocalService;
 import com.liferay.training.employee.service.DepartmentLocalServiceUtil;
 import com.liferay.training.employee.service.persistence.DepartmentPersistence;
+import com.liferay.training.employee.service.persistence.EmployeeFinder;
 import com.liferay.training.employee.service.persistence.EmployeePersistence;
 import com.liferay.training.employee.service.persistence.ProjectPersistence;
 
@@ -448,6 +449,9 @@ public abstract class DepartmentLocalServiceBaseImpl
 
 	@Reference
 	protected EmployeePersistence employeePersistence;
+
+	@Reference
+	protected EmployeeFinder employeeFinder;
 
 	@Reference
 	protected ProjectPersistence projectPersistence;

@@ -84,22 +84,23 @@ public class EmployeeServiceImpl extends EmployeeServiceBaseImpl {
 	}
 	
 //	public List<Employee> getEmployeeByGroupId(long groupId,long userId)
-	public List<Employee> getEmployeeByGroupId(String groupId,String userId)
-	
-	{
-		
-		return employeeLocalService.getEmployeeByGroupIdAsLocal(groupId, userId);
-	  }
-	
 	/*
-	 * public List<Employee> getEmployeeByGroupIdAndUserId(int userId, int groupId)
+	 * public List<Employee> getEmployeeByGroupId(String groupId,String userId)
+	 * 
 	 * {
 	 * 
-	 * return employeeLocalService.getEmployeeByGroupIdAndUserIdAsLocal(userId,
-	 * groupId);
-	 * 
-	 * 
-	 * }
+	 * return employeeLocalService.getEmployeeByGroupIdAsLocal(groupId, userId); }
 	 */
+	
+	
+	  public List<Employee> getEmployeeByGroupIdAndUserId(long userId, long groupId)
+	  {
+	  
+	  return employeeLocalService.getEmployeeByGroupIdAndUserIdAsLocal(userId,
+	  groupId);
+	  
+	  
+	  }
+	 
 	 
 }

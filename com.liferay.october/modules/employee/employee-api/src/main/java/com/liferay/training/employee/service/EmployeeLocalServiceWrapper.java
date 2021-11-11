@@ -269,6 +269,14 @@ public class EmployeeLocalServiceWrapper
 
 	@Override
 	public java.util.List<com.liferay.training.employee.model.Employee>
+		getEmployeeByGroupIdAndUserIdAsLocal(long userId, long groupId) {
+
+		return _employeeLocalService.getEmployeeByGroupIdAndUserIdAsLocal(
+			userId, groupId);
+	}
+
+	@Override
+	public java.util.List<com.liferay.training.employee.model.Employee>
 		getEmployeeByGroupIdAsLocal(String groupId, String userId) {
 
 		return _employeeLocalService.getEmployeeByGroupIdAsLocal(

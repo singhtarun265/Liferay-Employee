@@ -153,14 +153,7 @@ public class EmployeeLocalServiceImpl extends EmployeeLocalServiceBaseImpl {
 		return employeePersistence.countBynameSalary(name, salary);
 	}
 	
-	/*
-	 * public List<Employee> getEmployeeByGroupIdAndUserIdAsLocal(int userId, int
-	 * groupId) { return employeeFinder.getEmployeeByGroupIdAndUserId(userId,
-	 * groupId);
-	 * 
-	 * 
-	 * }
-	 */
+	
 	
 	public DynamicQuery getListWithDynamicQuery(long groupId, long userID) {
 		
@@ -171,6 +164,14 @@ public class EmployeeLocalServiceImpl extends EmployeeLocalServiceBaseImpl {
 		return employeeQuery;
 
 	}
+	
+	  public List<Employee> getEmployeeByGroupIdAndUserIdAsLocal(long userId, long
+	  groupId) {
+		  return employeeFinder.getEmployeeByGroupIdAndUserId(userId,groupId);
+	  
+	  
+	  }
+	 
 	
 	//public List<Employee> getEmployeeByGroupIdAsLocal(long groupId, long userId){
 	public List<Employee> getEmployeeByGroupIdAsLocal(String groupId, String userId){

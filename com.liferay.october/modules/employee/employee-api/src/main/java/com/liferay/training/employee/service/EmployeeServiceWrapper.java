@@ -59,9 +59,9 @@ public class EmployeeServiceWrapper
 
 	@Override
 	public java.util.List<com.liferay.training.employee.model.Employee>
-		getEmployeeByGroupId(String groupId, String userId) {
+		getEmployeeByGroupIdAndUserId(long userId, long groupId) {
 
-		return _employeeService.getEmployeeByGroupId(groupId, userId);
+		return _employeeService.getEmployeeByGroupIdAndUserId(userId, groupId);
 	}
 
 	@Override

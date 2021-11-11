@@ -57,10 +57,10 @@ public class EmployeeServiceUtil {
 		return getService().getEmployee(empId);
 	}
 
-	public static List<Employee> getEmployeeByGroupId(
-		String groupId, String userId) {
+	public static List<Employee> getEmployeeByGroupIdAndUserId(
+		long userId, long groupId) {
 
-		return getService().getEmployeeByGroupId(groupId, userId);
+		return getService().getEmployeeByGroupIdAndUserId(userId, groupId);
 	}
 
 	public static List<Employee> getEmployees(long deptId, float salary) {

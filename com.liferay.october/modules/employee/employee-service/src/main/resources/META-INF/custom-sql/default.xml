@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <custom-sql >
+<sql file="employee-custom-sql.xml"/>
+</custom-sql >
+ -->
+<custom-sql>
+<sql id="com.liferay.training.employee.service.persistence.impl.EmployeeFinderImpl" >
+<![CDATA[
+SELECT * FROM employee_employee WHERE employee_employee.userId=? AND employee_employee.groupId=?
+]]>
+</sql>
+</custom-sql>

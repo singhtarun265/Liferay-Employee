@@ -242,6 +242,13 @@ public class EmployeeLocalServiceUtil {
 		return getService().getEmployee(empId);
 	}
 
+	public static List<Employee> getEmployeeByGroupIdAndUserIdAsLocal(
+		long userId, long groupId) {
+
+		return getService().getEmployeeByGroupIdAndUserIdAsLocal(
+			userId, groupId);
+	}
+
 	public static List<Employee> getEmployeeByGroupIdAsLocal(
 		String groupId, String userId) {
 

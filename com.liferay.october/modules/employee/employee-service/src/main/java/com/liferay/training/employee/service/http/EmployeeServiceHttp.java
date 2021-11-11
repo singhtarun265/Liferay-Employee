@@ -283,16 +283,16 @@ public class EmployeeServiceHttp {
 	}
 
 	public static java.util.List<com.liferay.training.employee.model.Employee>
-		getEmployeeByGroupId(
-			HttpPrincipal httpPrincipal, String groupId, String userId) {
+		getEmployeeByGroupIdAndUserId(
+			HttpPrincipal httpPrincipal, long userId, long groupId) {
 
 		try {
 			MethodKey methodKey = new MethodKey(
-				EmployeeServiceUtil.class, "getEmployeeByGroupId",
-				_getEmployeeByGroupIdParameterTypes6);
+				EmployeeServiceUtil.class, "getEmployeeByGroupIdAndUserId",
+				_getEmployeeByGroupIdAndUserIdParameterTypes6);
 
 			MethodHandler methodHandler = new MethodHandler(
-				methodKey, groupId, userId);
+				methodKey, userId, groupId);
 
 			Object returnObj = null;
 
@@ -339,7 +339,9 @@ public class EmployeeServiceHttp {
 	private static final Class<?>[] _getEmployeesParameterTypes5 = new Class[] {
 		long.class, float.class
 	};
-	private static final Class<?>[] _getEmployeeByGroupIdParameterTypes6 =
-		new Class[] {String.class, String.class};
+	private static final Class<?>[]
+		_getEmployeeByGroupIdAndUserIdParameterTypes6 = new Class[] {
+			long.class, long.class
+		};
 
 }

@@ -27,6 +27,7 @@ import com.liferay.training.employee.model.Project;
 import com.liferay.training.employee.service.ProjectService;
 import com.liferay.training.employee.service.ProjectServiceUtil;
 import com.liferay.training.employee.service.persistence.DepartmentPersistence;
+import com.liferay.training.employee.service.persistence.EmployeeFinder;
 import com.liferay.training.employee.service.persistence.EmployeePersistence;
 import com.liferay.training.employee.service.persistence.ProjectPersistence;
 
@@ -136,6 +137,9 @@ public abstract class ProjectServiceBaseImpl
 
 	@Reference
 	protected EmployeePersistence employeePersistence;
+
+	@Reference
+	protected EmployeeFinder employeeFinder;
 
 	@Reference
 	protected com.liferay.training.employee.service.ProjectLocalService
