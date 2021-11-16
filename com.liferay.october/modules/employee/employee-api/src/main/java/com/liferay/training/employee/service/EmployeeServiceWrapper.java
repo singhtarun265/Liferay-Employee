@@ -51,6 +51,13 @@ public class EmployeeServiceWrapper
 	}
 
 	@Override
+	public java.util.List<com.liferay.training.employee.model.Employee>
+		getAllEmployeesInformation() {
+
+		return _employeeService.getAllEmployeesInformation();
+	}
+
+	@Override
 	public com.liferay.training.employee.model.Employee getEmployee(long empId)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -59,9 +66,19 @@ public class EmployeeServiceWrapper
 
 	@Override
 	public java.util.List<com.liferay.training.employee.model.Employee>
-		getEmployeeByGroupIdAndUserId(long userId, long groupId) {
+		getEmployeeByGroupIdAndUserIdAsRemote(long userId, long groupId) {
 
-		return _employeeService.getEmployeeByGroupIdAndUserId(userId, groupId);
+		return _employeeService.getEmployeeByGroupIdAndUserIdAsRemote(
+			userId, groupId);
+	}
+
+	@Override
+	public java.util.List<com.liferay.training.employee.model.Employee>
+		getEmployeeByUserNameAndJobTitleAsRemote(
+			String userName, String jobTitle) {
+
+		return _employeeService.getEmployeeByUserNameAndJobTitleAsRemote(
+			userName, jobTitle);
 	}
 
 	@Override

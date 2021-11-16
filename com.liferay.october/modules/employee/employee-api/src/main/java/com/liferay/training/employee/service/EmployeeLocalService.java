@@ -215,6 +215,9 @@ public interface EmployeeLocalService
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ActionableDynamicQuery getActionableDynamicQuery();
 
+	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+	public List<Employee> getAllEmployeesInformationAsLocal();
+
 	/**
 	 * Returns the employee with the primary key.
 	 *
@@ -230,8 +233,8 @@ public interface EmployeeLocalService
 		long userId, long groupId);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public List<Employee> getEmployeeByGroupIdAsLocal(
-		String groupId, String userId);
+	public List<Employee> getEmployeeByUserNameAndJobTitleAsLocal(
+		String userName, String jobTitle);
 
 	/**
 	 * Returns the employee matching the UUID and group.
@@ -314,9 +317,6 @@ public interface EmployeeLocalService
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public IndexableActionableDynamicQuery getIndexableActionableDynamicQuery();
-
-	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public DynamicQuery getListWithDynamicQuery(long groupId, long userID);
 
 	/**
 	 * Returns the OSGi service identifier.

@@ -26,4 +26,14 @@ public interface EmployeeFinder {
 	public java.util.List<com.liferay.training.employee.model.Employee>
 		getEmployeeByGroupIdAndUserId(long userId, long groupId);
 
+	public java.util.List<com.liferay.training.employee.model.Employee>
+		getAllEmployeesInformation();
+
+	public java.util.List<com.liferay.training.employee.model.Employee>
+		getEmployeeByUserNameAndJobTitleWithDynamic(
+			String userName, String jobTitle);
+
+	public com.liferay.portal.kernel.dao.orm.DynamicQuery
+		getListWithDynamicQuery(String userName, String jobTitle);
+
 }

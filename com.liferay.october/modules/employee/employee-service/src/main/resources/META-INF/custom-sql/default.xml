@@ -9,4 +9,10 @@
 SELECT * FROM employee_employee WHERE employee_employee.userId=? AND employee_employee.groupId=?
 ]]>
 </sql>
+<sql id="com.liferay.training.employee.service.persistence.impl.EmployeeFinderImpl.Alldata" >
+<![CDATA[
+select uuid_ ,empId,groupId,companyId,name,userName,userId,jobTitle,phoneNo,salary,deptId,projectId,createDate,modifiedDate FROM employee_employee WHERE employee_employee
+]]>
+</sql>
+
 </custom-sql>

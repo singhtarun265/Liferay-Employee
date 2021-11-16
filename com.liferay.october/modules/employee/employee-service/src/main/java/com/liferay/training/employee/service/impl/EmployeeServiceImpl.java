@@ -28,79 +28,78 @@ import org.osgi.service.component.annotations.Component;
  * The implementation of the employee remote service.
  *
  * <p>
- * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the <code>com.liferay.training.employee.service.EmployeeService</code> interface.
+ * All custom service methods should be put in this class. Whenever methods are
+ * added, rerun ServiceBuilder to copy their definitions into the
+ * <code>com.liferay.training.employee.service.EmployeeService</code> interface.
  *
  * <p>
- * This is a remote service. Methods of this service are expected to have security checks based on the propagated JAAS credentials because this service can be accessed remotely.
+ * This is a remote service. Methods of this service are expected to have
+ * security checks based on the propagated JAAS credentials because this service
+ * can be accessed remotely.
  * </p>
  *
  * @author Brian Wing Shun Chan
  * @see EmployeeServiceBaseImpl
  */
-@Component(
-	property = {
-		"json.web.service.context.name=employee",
-		"json.web.service.context.path=Employee"
-	},
-	service = AopService.class
-)
+@Component(property = { "json.web.service.context.name=employee",
+		"json.web.service.context.path=Employee" }, service = AopService.class)
 public class EmployeeServiceImpl extends EmployeeServiceBaseImpl {
 
 	/*
 	 * NOTE FOR DEVELOPERS:
 	 *
-	 * Never reference this class directly. Always use <code>com.liferay.training.employee.service.EmployeeServiceUtil</code> to access the employee remote service.
+	 * Never reference this class directly. Always use
+	 * <code>com.liferay.training.employee.service.EmployeeServiceUtil</code> to
+	 * access the employee remote service.
 	 */
-	
-	
-	  public Employee addEmployee(long userId, String name, String jobTitle, String
-	  phoneNo, float salary, long deptId, long projectId, ServiceContext
-	  serviceContext) throws PortalException { return
-	  employeeLocalService.addEmployee(userId, name, jobTitle, phoneNo, salary,
-	  deptId, projectId, serviceContext); }
-	 
-	
-	public Employee updateEmployee(long userId,long empId, String name, String jobTitle, String phoneNo, float salary, 
-			long deptId, long projectId, ServiceContext serviceContext)
-		throws PortalException {
-	return employeeLocalService.updateEmployee(userId, empId, name, jobTitle, phoneNo, salary, deptId, projectId, serviceContext);
+
+	public Employee addEmployee(long userId, String name, String jobTitle, String phoneNo, float salary, long deptId,
+			long projectId, ServiceContext serviceContext) throws PortalException {
+		return employeeLocalService.addEmployee(userId, name, jobTitle, phoneNo, salary, deptId, projectId,
+				serviceContext);
 	}
-	
+
+	public Employee updateEmployee(long userId, long empId, String name, String jobTitle, String phoneNo, float salary,
+			long deptId, long projectId, ServiceContext serviceContext) throws PortalException {
+		return employeeLocalService.updateEmployee(userId, empId, name, jobTitle, phoneNo, salary, deptId, projectId,
+				serviceContext);
+	}
+
 	public Employee deleteEmployee(long empId) throws PortalException {
 		return employeeLocalService.deleteEmployee(empId);
 	}
-	public Employee getEmployee(long empId) throws PortalException{
+
+	public Employee getEmployee(long empId) throws PortalException {
 		return employeeLocalService.getEmployee(empId);
 	}
-	
-	public int getEmployeesCount(String name, float salary){
-		
+
+	public int getEmployeesCount(String name, float salary) {
+
 		return employeeLocalService.getEmployeesCount(name, salary);
 	}
-	
-	public List<Employee> getEmployees(long deptId, float salary){
-		
+
+	public List<Employee> getEmployees(long deptId, float salary) {
+
 		return employeeLocalService.getEmployees(deptId, salary);
 	}
+
+	// Custom SQL Query
+	public List<Employee> getEmployeeByGroupIdAndUserIdAsRemote(long userId, long groupId) {
+
+		return employeeLocalService.getEmployeeByGroupIdAndUserIdAsLocal(userId, groupId);
+
+	}
+
+	// Dynamic Query
+	public List<Employee> getEmployeeByUserNameAndJobTitleAsRemote(String userName, String jobTitle) {
+
+		return employeeLocalService.getEmployeeByUserNameAndJobTitleAsLocal(userName, jobTitle);
+	}
 	
-//	public List<Employee> getEmployeeByGroupId(long groupId,long userId)
-	/*
-	 * public List<Employee> getEmployeeByGroupId(String groupId,String userId)
-	 * 
-	 * {
-	 * 
-	 * return employeeLocalService.getEmployeeByGroupIdAsLocal(groupId, userId); }
-	 */
-	
-	
-	  public List<Employee> getEmployeeByGroupIdAndUserId(long userId, long groupId)
-	  {
-	  
-	  return employeeLocalService.getEmployeeByGroupIdAndUserIdAsLocal(userId,
-	  groupId);
-	  
-	  
-	  }
-	 
-	 
+	//Custom SQL Query
+	public List<Employee> getAllEmployeesInformation() {
+		return employeeLocalService.getAllEmployeesInformationAsLocal();
+	}
+		
+
 }

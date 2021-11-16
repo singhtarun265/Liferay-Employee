@@ -179,13 +179,54 @@ public class EmployeeServiceSoap {
 	}
 
 	public static com.liferay.training.employee.model.EmployeeSoap[]
-			getEmployeeByGroupIdAndUserId(long userId, long groupId)
+			getEmployeeByGroupIdAndUserIdAsRemote(long userId, long groupId)
 		throws RemoteException {
 
 		try {
 			java.util.List<com.liferay.training.employee.model.Employee>
-				returnValue = EmployeeServiceUtil.getEmployeeByGroupIdAndUserId(
-					userId, groupId);
+				returnValue =
+					EmployeeServiceUtil.getEmployeeByGroupIdAndUserIdAsRemote(
+						userId, groupId);
+
+			return com.liferay.training.employee.model.EmployeeSoap.
+				toSoapModels(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.liferay.training.employee.model.EmployeeSoap[]
+			getEmployeeByUserNameAndJobTitleAsRemote(
+				String userName, String jobTitle)
+		throws RemoteException {
+
+		try {
+			java.util.List<com.liferay.training.employee.model.Employee>
+				returnValue =
+					EmployeeServiceUtil.
+						getEmployeeByUserNameAndJobTitleAsRemote(
+							userName, jobTitle);
+
+			return com.liferay.training.employee.model.EmployeeSoap.
+				toSoapModels(returnValue);
+		}
+		catch (Exception exception) {
+			_log.error(exception, exception);
+
+			throw new RemoteException(exception.getMessage());
+		}
+	}
+
+	public static com.liferay.training.employee.model.EmployeeSoap[]
+			getAllEmployeesInformation()
+		throws RemoteException {
+
+		try {
+			java.util.List<com.liferay.training.employee.model.Employee>
+				returnValue = EmployeeServiceUtil.getAllEmployeesInformation();
 
 			return com.liferay.training.employee.model.EmployeeSoap.
 				toSoapModels(returnValue);

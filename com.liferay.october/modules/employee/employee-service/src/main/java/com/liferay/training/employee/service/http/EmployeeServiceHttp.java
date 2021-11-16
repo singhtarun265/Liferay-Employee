@@ -283,16 +283,84 @@ public class EmployeeServiceHttp {
 	}
 
 	public static java.util.List<com.liferay.training.employee.model.Employee>
-		getEmployeeByGroupIdAndUserId(
+		getEmployeeByGroupIdAndUserIdAsRemote(
 			HttpPrincipal httpPrincipal, long userId, long groupId) {
 
 		try {
 			MethodKey methodKey = new MethodKey(
-				EmployeeServiceUtil.class, "getEmployeeByGroupIdAndUserId",
-				_getEmployeeByGroupIdAndUserIdParameterTypes6);
+				EmployeeServiceUtil.class,
+				"getEmployeeByGroupIdAndUserIdAsRemote",
+				_getEmployeeByGroupIdAndUserIdAsRemoteParameterTypes6);
 
 			MethodHandler methodHandler = new MethodHandler(
 				methodKey, userId, groupId);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (java.util.List
+				<com.liferay.training.employee.model.Employee>)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
+	public static java.util.List<com.liferay.training.employee.model.Employee>
+		getEmployeeByUserNameAndJobTitleAsRemote(
+			HttpPrincipal httpPrincipal, String userName, String jobTitle) {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				EmployeeServiceUtil.class,
+				"getEmployeeByUserNameAndJobTitleAsRemote",
+				_getEmployeeByUserNameAndJobTitleAsRemoteParameterTypes7);
+
+			MethodHandler methodHandler = new MethodHandler(
+				methodKey, userName, jobTitle);
+
+			Object returnObj = null;
+
+			try {
+				returnObj = TunnelUtil.invoke(httpPrincipal, methodHandler);
+			}
+			catch (Exception exception) {
+				throw new com.liferay.portal.kernel.exception.SystemException(
+					exception);
+			}
+
+			return (java.util.List
+				<com.liferay.training.employee.model.Employee>)returnObj;
+		}
+		catch (com.liferay.portal.kernel.exception.SystemException
+					systemException) {
+
+			_log.error(systemException, systemException);
+
+			throw systemException;
+		}
+	}
+
+	public static java.util.List<com.liferay.training.employee.model.Employee>
+		getAllEmployeesInformation(HttpPrincipal httpPrincipal) {
+
+		try {
+			MethodKey methodKey = new MethodKey(
+				EmployeeServiceUtil.class, "getAllEmployeesInformation",
+				_getAllEmployeesInformationParameterTypes8);
+
+			MethodHandler methodHandler = new MethodHandler(methodKey);
 
 			Object returnObj = null;
 
@@ -340,8 +408,14 @@ public class EmployeeServiceHttp {
 		long.class, float.class
 	};
 	private static final Class<?>[]
-		_getEmployeeByGroupIdAndUserIdParameterTypes6 = new Class[] {
+		_getEmployeeByGroupIdAndUserIdAsRemoteParameterTypes6 = new Class[] {
 			long.class, long.class
 		};
+	private static final Class<?>[]
+		_getEmployeeByUserNameAndJobTitleAsRemoteParameterTypes7 = new Class[] {
+			String.class, String.class
+		};
+	private static final Class<?>[] _getAllEmployeesInformationParameterTypes8 =
+		new Class[] {};
 
 }
