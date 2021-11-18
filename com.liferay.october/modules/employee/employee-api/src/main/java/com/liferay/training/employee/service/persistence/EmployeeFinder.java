@@ -33,7 +33,4 @@ public interface EmployeeFinder {
 		getEmployeeByUserNameAndJobTitleWithDynamic(
 			String userName, String jobTitle);
 
-	public com.liferay.portal.kernel.dao.orm.DynamicQuery
-		getListWithDynamicQuery(String userName, String jobTitle);
-
 }

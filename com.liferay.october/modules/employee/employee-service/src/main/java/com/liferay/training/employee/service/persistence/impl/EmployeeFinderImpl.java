@@ -1,7 +1,6 @@
 package com.liferay.training.employee.service.persistence.impl;
 
 import com.liferay.portal.dao.orm.custom.sql.CustomSQL;
-import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.dao.orm.QueryPos;
 import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.SQLQuery;
@@ -80,22 +79,14 @@ public class EmployeeFinderImpl extends EmployeeFinderBaseImpl implements Employ
 
 	public List<Employee> getEmployeeByUserNameAndJobTitleWithDynamic(String userName, String jobTitle) {
 
-		List<Employee> employeeList = employeeLocalService.dynamicQuery(getListWithDynamicQuery(userName, jobTitle));
-
+		List<Employee> employeeList  = employeeLocalService.dynamicQuery(employeeLocalService.dynamicQuery().
+															  add(RestrictionsFactoryUtil.eq("name", userName)).
+															  add(RestrictionsFactoryUtil.eq("jobTitle", jobTitle)));
+		
 		return employeeList;
 	}
 
-	public DynamicQuery getListWithDynamicQuery(String userName, String jobTitle) {
-
-		DynamicQuery employeeQuery = (DynamicQuery) employeeLocalService
-				.dynamicQuery(employeeLocalService.dynamicQuery().
-				// add(RestrictionsFactoryUtil.eq("name", userName)).
-						add(RestrictionsFactoryUtil.eq("jobTitle", jobTitle)));
-
-		return employeeQuery;
-
-	}
-
+	
 	// @ServiceReference(type = CustomSQL.class)
 
 	@Reference

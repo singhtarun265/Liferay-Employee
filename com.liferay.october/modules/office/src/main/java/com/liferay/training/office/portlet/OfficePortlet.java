@@ -17,7 +17,6 @@ import java.util.List;
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.Portlet;
-
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
@@ -38,12 +37,7 @@ public class OfficePortlet extends MVCPortlet {
 
 	public void addEntry(ActionRequest request, ActionResponse response) throws PortalException, SystemException {
 
-		// ThemeDisplay themeDisplay = (ThemeDisplay)
-		// request.getAttribute(WebKeys.THEME_DISPLAY);
-
 		ServiceContext serviceContext = ServiceContextFactory.getInstance(Employee.class.getName(), request);
-
-		// long groupId = themeDisplay.getScopeGroupId();
 
 		String name = ParamUtil.getString(request, "name");
 		String jobTitle = ParamUtil.getString(request, "jobTitle");
@@ -69,14 +63,7 @@ public class OfficePortlet extends MVCPortlet {
 	}
 
 	public void deleteEntry(ActionRequest request, ActionResponse response) throws PortalException, SystemException {
-
-		// ThemeDisplay themeDisplay = (ThemeDisplay)
-		// request.getAttribute(WebKeys.THEME_DISPLAY);
-
-		ServiceContext serviceContext = ServiceContextFactory.getInstance(Employee.class.getName(), request);
-
-		// long groupId = themeDisplay.getScopeGroupId();
-
+ 
 		long empId = ParamUtil.getLong(request, "empId");
 
 		try {
@@ -92,25 +79,32 @@ public class OfficePortlet extends MVCPortlet {
 		}
 	}
 
-	public List<Employee> viewEntry()
+	@SuppressWarnings("deprecation")
+	public void viewEntry(ActionRequest request, ActionResponse response)
 			throws PortalException, SystemException {
 
 		try {
 
-//    	System.out.println("Data is deleted");
-//    	SessionMessages.add(request, "remove");
-//    	
-			return officeApi.getAllEmployeesInformationOffice();
-
+   	
+			List<Employee> employeeList=officeApi.getAllEmployeesInformationOffice();
+			request.setAttribute("employeeList",employeeList );
+			
+			System.out.println("Employee List"+employeeList);
+			 SessionMessages.add(request,"employee-form-success");
+			 
+			
+			 System.out.println("Just before");
+			response.setRenderParameter("mvcPath", "/viewEmployee.jsp");
+			
+			
 		} catch (Exception e) {
 			//SessionErrors.add(request, "delete-key");
-			System.out.println("The error " + e);
-			System.err.println(e);
+			 SessionErrors.add( request,"employee-form-error");
+			 
 
 		}
 
-		return null;
-
+		
 	}
 
 	@Reference

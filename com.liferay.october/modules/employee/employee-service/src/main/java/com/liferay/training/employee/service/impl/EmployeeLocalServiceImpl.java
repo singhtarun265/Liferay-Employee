@@ -16,17 +16,15 @@ package com.liferay.training.employee.service.impl;
 
 import com.liferay.portal.aop.AopService;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
-import com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil;
-import com.liferay.portal.kernel.dao.orm.PropertyFactoryUtil;
 import com.liferay.portal.kernel.dao.orm.RestrictionsFactoryUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.service.ServiceContext;
+import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.OrderByComparator;
-import com.liferay.portal.kernel.util.PortalClassLoaderUtil;
+import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.training.employee.model.Employee;
 import com.liferay.training.employee.service.base.EmployeeLocalServiceBaseImpl;
-import com.liferay.training.employee.service.persistence.EmployeePersistence;
 
 import java.util.List;
 
@@ -65,7 +63,9 @@ public class EmployeeLocalServiceImpl extends EmployeeLocalServiceBaseImpl {
 	public Employee addEmployee(long userId, String name, String jobTitle, String phoneNo, float salary, long deptId,
 			long projectId, ServiceContext serviceContext) throws PortalException {
 
-		long groupId = serviceContext.getScopeGroupId();
+	ThemeDisplay themeDisplay = (ThemeDisplay) serviceContext.getAttribute(WebKeys.THEME_DISPLAY);
+		
+		long groupId = themeDisplay.getScopeGroupId();
 		System.out.println("Debug mode is on");
 		User user = userLocalService.getUserById(userId);
 
@@ -166,8 +166,17 @@ public class EmployeeLocalServiceImpl extends EmployeeLocalServiceBaseImpl {
 	public List<Employee> getEmployeeByUserNameAndJobTitleAsLocal(String userName, String jobTitle) {
 
 		
+		/*
+		 * List<Employee> employeeList =
+		 * dynamicQuery(employeeLocalService.dynamicQuery().
+		 * add(RestrictionsFactoryUtil.eq("name", userName)).
+		 * add(RestrictionsFactoryUtil.eq("jobTitle", jobTitle)));
+		 * 
+		 *  return employeeList;
+		 */ 
+		
 		return employeeFinder.getEmployeeByUserNameAndJobTitleWithDynamic(userName, jobTitle);
-	
+		 
 	}
 	public List<Employee> getAllEmployeesInformationAsLocal() {
 		return employeeFinder.getAllEmployeesInformation();

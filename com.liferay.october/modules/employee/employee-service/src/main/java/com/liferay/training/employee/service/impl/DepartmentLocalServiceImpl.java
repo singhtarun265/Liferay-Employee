@@ -18,6 +18,8 @@ import com.liferay.portal.aop.AopService;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.model.User;
 import com.liferay.portal.kernel.service.ServiceContext;
+import com.liferay.portal.kernel.theme.ThemeDisplay;
+import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.training.employee.model.Department;
 import com.liferay.training.employee.service.base.DepartmentLocalServiceBaseImpl;
 
@@ -50,8 +52,10 @@ public class DepartmentLocalServiceImpl extends DepartmentLocalServiceBaseImpl {
 	public Department addDepartment(long userId, String deptName, ServiceContext serviceContext)
 		throws PortalException {
 		
-		long groupId= serviceContext.getScopeGroupId();
+		//long groupId= serviceContext.getScopeGroupId();
+		ThemeDisplay themeDisplay = (ThemeDisplay) serviceContext.getAttribute(WebKeys.THEME_DISPLAY);
 		
+		long groupId = themeDisplay.getScopeGroupId();
 		User user= userLocalService.getUserById(userId);
 		
 		long deptId= counterLocalService.increment();
