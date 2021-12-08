@@ -4,7 +4,13 @@
 	<portlet:param name="mvcPath" value="/view.jsp"></portlet:param>
 </portlet:renderURL>
 
-<portlet:actionURL name="addEntry" var="addEntryURL"></portlet:actionURL>
+<portlet:renderURL var="viewEntryURL">
+    <portlet:param name="mvcRenderCommandName" value="/viewEntry" />
+</portlet:renderURL>
+
+
+<portlet:actionURL name="/new/addEntry" var="addEntryURL"/>
+
 <liferay-ui:success key="employeeAdded" message="successfully" />
 <liferay-ui:error key="error-key" message="error"/>
 <aui:form action="<%=addEntryURL%>" name="<portlet:namespace />fm">
@@ -70,5 +76,6 @@
 	<aui:button-row>
 		<aui:button type="submit"></aui:button>
 		<aui:button type="cancel" onClick="<%=viewURL.toString()%>"></aui:button>
+		<aui:button onClick="<%= viewEntryURL.toString()%>"	value="View All Employees"></aui:button>
 	</aui:button-row>
 </aui:form>

@@ -62,11 +62,13 @@ public class EmployeeLocalServiceImpl extends EmployeeLocalServiceBaseImpl {
 
 	public Employee addEmployee(long userId, String name, String jobTitle, String phoneNo, float salary, long deptId,
 			long projectId, ServiceContext serviceContext) throws PortalException {
-
-	ThemeDisplay themeDisplay = (ThemeDisplay) serviceContext.getAttribute(WebKeys.THEME_DISPLAY);
 		
-		long groupId = themeDisplay.getScopeGroupId();
-		System.out.println("Debug mode is on");
+	//ThemeDisplay themeDisplay = (ThemeDisplay) serviceContext.getAttribute(WebKeys.THEME_DISPLAY);
+		
+	//	long groupId = themeDisplay.getScopeGroupId();
+		
+		long groupId = serviceContext.getScopeGroupId();
+		
 		User user = userLocalService.getUserById(userId);
 
 		long empId = counterLocalService.increment();
@@ -90,7 +92,7 @@ public class EmployeeLocalServiceImpl extends EmployeeLocalServiceBaseImpl {
 		employee.setProjectId(projectId);
 
 		employeePersistence.update(employee);
-		System.out.println("Debugmode2nd");
+		
 		return employee;
 
 	}

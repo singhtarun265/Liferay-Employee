@@ -1,24 +1,16 @@
 package com.liferay.training.office.portlet;
 
-import com.liferay.portal.kernel.exception.PortalException;
-import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
-import com.liferay.portal.kernel.service.ServiceContext;
-import com.liferay.portal.kernel.service.ServiceContextFactory;
-import com.liferay.portal.kernel.servlet.SessionErrors;
-import com.liferay.portal.kernel.servlet.SessionMessages;
-import com.liferay.portal.kernel.util.ParamUtil;
-import com.liferay.training.employee.model.Employee;
-import com.liferay.training.office.api.OfficeApi;
 import com.liferay.training.office.constants.OfficePortletKeys;
 
-import java.util.List;
+import java.io.IOException;
 
-import javax.portlet.ActionRequest;
-import javax.portlet.ActionResponse;
 import javax.portlet.Portlet;
+import javax.portlet.PortletException;
+import javax.portlet.RenderRequest;
+import javax.portlet.RenderResponse;
+
 import org.osgi.service.component.annotations.Component;
-import org.osgi.service.component.annotations.Reference;
 
 /**
  * @author Argil DX
@@ -34,6 +26,15 @@ import org.osgi.service.component.annotations.Reference;
 		"javax.portlet.resource-bundle=content.Language",
 		"javax.portlet.security-role-ref=power-user,user" }, service = Portlet.class)
 public class OfficePortlet extends MVCPortlet {
+/**	
+	@throws IOException 
+ * @Override
+		public void render(RenderRequest renderRequest, RenderResponse renderResponse)
+				throws IOException, PortletException {
+			// TODO Auto-generated method stub
+		
+			super.render(renderRequest, renderResponse);
+		}
 
 	public void addEntry(ActionRequest request, ActionResponse response) throws PortalException, SystemException {
 
@@ -109,4 +110,21 @@ public class OfficePortlet extends MVCPortlet {
 
 	@Reference
 	OfficeApi officeApi;
+	**/
+	@Override
+	public void render(RenderRequest renderRequest, RenderResponse renderResponse)
+			throws PortletException, IOException {
+		try {
+			String urlPath = renderRequest.getAttribute("jspPath").toString();
+
+			if (urlPath != null)
+				include(urlPath, renderRequest, renderResponse);
+			
+			} catch (Exception e) {
+				super.render(renderRequest, renderResponse);
+		} finally {
+			
+			
+		}
+	}
 }

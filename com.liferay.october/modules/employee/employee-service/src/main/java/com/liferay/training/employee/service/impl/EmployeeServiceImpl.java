@@ -55,6 +55,7 @@ public class EmployeeServiceImpl extends EmployeeServiceBaseImpl {
 
 	public Employee addEmployee(long userId, String name, String jobTitle, String phoneNo, float salary, long deptId,
 			long projectId, ServiceContext serviceContext) throws PortalException {
+		
 		return employeeLocalService.addEmployee(userId, name, jobTitle, phoneNo, salary, deptId, projectId,
 				serviceContext);
 	}

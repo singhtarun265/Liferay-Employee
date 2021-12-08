@@ -12,10 +12,13 @@
 	<portlet:param name="mvcPath" value="/deleteEmployee.jsp"></portlet:param>
 </portlet:renderURL>
 
-<portlet:actionURL name="viewEntry" var="viewEntryURL">
-	<!-- <portlet:param name="redirect" value="/viewEmployee.jsp" /> -->
-</portlet:actionURL>
+<!-- <portlet:actionURL name="viewEntry" var="viewEntryURL">
+	<portlet:param name="redirect" value="/viewEmployee.jsp" />
+</portlet:actionURL> -->
 
+<portlet:renderURL var="viewEntryURL">
+    <portlet:param name="mvcRenderCommandName" value="/viewEntry" />
+</portlet:renderURL>
 
 <aui:button-row>
 	<aui:button onClick="<%= addEntryURL.toString()%>" value="Registration"></aui:button>
