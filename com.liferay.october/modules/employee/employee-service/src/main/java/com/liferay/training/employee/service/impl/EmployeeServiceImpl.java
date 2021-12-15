@@ -98,8 +98,8 @@ public class EmployeeServiceImpl extends EmployeeServiceBaseImpl {
 	}
 	
 	//Custom SQL Query
-	public List<Employee> getAllEmployeesInformation() {
-		return employeeLocalService.getAllEmployeesInformationAsLocal();
+	public List<Employee> getAllEmployeesInformation(int start, int end) {
+		return employeeLocalService.getAllEmployeesInformationAsLocal(start, end);
 	}
 		
 

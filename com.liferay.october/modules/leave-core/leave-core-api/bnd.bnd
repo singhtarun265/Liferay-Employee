@@ -1,0 +1,10 @@
+Bundle-Name: leave-core-api
+Bundle-SymbolicName: org.javasavvy.leave.core.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	org.javasavvy.leave.exception,\
+	org.javasavvy.leave.model,\
+	org.javasavvy.leave.service,\
+	org.javasavvy.leave.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../leave-core-service/service.xml

@@ -20,9 +20,14 @@
     <portlet:param name="mvcRenderCommandName" value="/viewEntry" />
 </portlet:renderURL>
 
+<portlet:renderURL var="searchContainerURL">
+    <portlet:param name="mvcRenderCommandName" value="/searchContainer" />
+   
+</portlet:renderURL>
+
 <aui:button-row>
 	<aui:button onClick="<%= addEntryURL.toString()%>" value="Registration"></aui:button>
 	<aui:button onClick="<%= deleteEntryURL.toString()%>" value="Delete"></aui:button>
-	<aui:button onClick="<%= viewEntryURL.toString()%>"
-		value="View All Employees"></aui:button>
+	<aui:button onClick="<%= viewEntryURL.toString()%>"	value="View All Employees"></aui:button>
+	<aui:button onClick="<%= searchContainerURL.toString()%>" value="Search Container"></aui:button>
 </aui:button-row>

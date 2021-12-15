@@ -53,8 +53,10 @@ public class EmployeeServiceUtil {
 		return getService().deleteEmployee(empId);
 	}
 
-	public static List<Employee> getAllEmployeesInformation() {
-		return getService().getAllEmployeesInformation();
+	public static List<Employee> getAllEmployeesInformation(
+		int start, int end) {
+
+		return getService().getAllEmployeesInformation(start, end);
 	}
 
 	public static Employee getEmployee(long empId) throws PortalException {

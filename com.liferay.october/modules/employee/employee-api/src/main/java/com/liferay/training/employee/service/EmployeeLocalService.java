@@ -216,7 +216,7 @@ public interface EmployeeLocalService
 	public ActionableDynamicQuery getActionableDynamicQuery();
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public List<Employee> getAllEmployeesInformationAsLocal();
+	public List<Employee> getAllEmployeesInformationAsLocal(int start, int end);
 
 	/**
 	 * Returns the employee with the primary key.

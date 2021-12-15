@@ -180,8 +180,8 @@ public class EmployeeLocalServiceImpl extends EmployeeLocalServiceBaseImpl {
 		return employeeFinder.getEmployeeByUserNameAndJobTitleWithDynamic(userName, jobTitle);
 		 
 	}
-	public List<Employee> getAllEmployeesInformationAsLocal() {
-		return employeeFinder.getAllEmployeesInformation();
+	public List<Employee> getAllEmployeesInformationAsLocal(int start, int end) {
+		return employeeFinder.getAllEmployeesInformation(start,end);
 	}
 	
 

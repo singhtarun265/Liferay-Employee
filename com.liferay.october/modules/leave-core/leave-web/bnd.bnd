@@ -1,0 +1,4 @@
+Bundle-Name: leave-web
+Bundle-SymbolicName: org.javasavvy.leave.web
+Bundle-Version: 1.0.0
+Export-Package: org.javasavvy.leave.constants

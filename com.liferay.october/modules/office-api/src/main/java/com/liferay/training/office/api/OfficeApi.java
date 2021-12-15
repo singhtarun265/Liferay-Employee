@@ -34,5 +34,5 @@ public interface OfficeApi {
 
 	public List<Employee> getEmployeeByUserNameAndJobTitleOffice(String userName, String jobTitle);
 	
-	public List<Employee> getAllEmployeesInformationOffice() ;
+	public List<Employee> getAllEmployeesInformationOffice(int start, int end) ;
 }

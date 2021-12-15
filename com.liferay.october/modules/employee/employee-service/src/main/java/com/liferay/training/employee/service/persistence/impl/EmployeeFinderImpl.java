@@ -50,7 +50,7 @@ public class EmployeeFinderImpl extends EmployeeFinderBaseImpl implements Employ
 	}
 
 	
-	public List<Employee> getAllEmployeesInformation() {
+	public List<Employee> getAllEmployeesInformation(int start, int end) {
 		
 	System.out.println("Inside custom sql");
 	Session session = null;
@@ -65,6 +65,8 @@ public class EmployeeFinderImpl extends EmployeeFinderBaseImpl implements Employ
 		queryObject.addEntity("Employee", EmployeeImpl.class);
 
 		QueryPos qPos = QueryPos.getInstance(queryObject);
+		qPos.add(start);
+		qPos.add(end);
 		
 		List<Employee> emp= queryObject.list();
 		return emp;
@@ -94,5 +96,7 @@ public class EmployeeFinderImpl extends EmployeeFinderBaseImpl implements Employ
 
 	@ServiceReference(type = EmployeeLocalService.class)
 	private EmployeeLocalService employeeLocalService;
+
+
 
 }

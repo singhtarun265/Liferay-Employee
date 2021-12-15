@@ -1,0 +1,11 @@
+Bundle-Name: leave-core-service
+Bundle-SymbolicName: org.javasavvy.leave.core.service
+Bundle-Version: 1.0.0
+Liferay-Require-SchemaVersion: 1.0.0
+Liferay-Service: true
+-dsannotations-options: inherit
+Export-Package: \
+	org.javasavvy.leave.service.persistence,\
+	org.javasavvy.leave.service,\
+	org.javasavvy.leave.model,\
+	org.javasavvy.leave.exception

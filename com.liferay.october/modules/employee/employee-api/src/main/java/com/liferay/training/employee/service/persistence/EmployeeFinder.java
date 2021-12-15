@@ -27,7 +27,7 @@ public interface EmployeeFinder {
 		getEmployeeByGroupIdAndUserId(long userId, long groupId);
 
 	public java.util.List<com.liferay.training.employee.model.Employee>
-		getAllEmployeesInformation();
+		getAllEmployeesInformation(int start, int end);
 
 	public java.util.List<com.liferay.training.employee.model.Employee>
 		getEmployeeByUserNameAndJobTitleWithDynamic(

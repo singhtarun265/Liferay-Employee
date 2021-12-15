@@ -1,0 +1,11 @@
+dependencies {
+	compile project(":modules:leave-core:leave-core-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.dxp.api"
+}
+
+buildService {
+	apiDir = "../leave-core-api/src/main/java"
+}
+
+group = "org.javasavvy.leave"

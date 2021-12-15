@@ -27,7 +27,7 @@ public class ViewEntryMVCRenderCommand implements MVCRenderCommand {
 
 	@Override
 	public String render(RenderRequest request, RenderResponse response) throws PortletException {
-		List<Employee> employeeList=officeApi.getAllEmployeesInformationOffice();
+		List<Employee> employeeList=officeApi.getAllEmployeesInformationOffice(0,12);
 		request.setAttribute("employeeList",employeeList );
 		
 		System.out.println("Employee List"+employeeList);

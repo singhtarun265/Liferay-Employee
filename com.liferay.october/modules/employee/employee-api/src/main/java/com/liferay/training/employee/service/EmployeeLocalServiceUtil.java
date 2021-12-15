@@ -231,8 +231,10 @@ public class EmployeeLocalServiceUtil {
 		return getService().getActionableDynamicQuery();
 	}
 
-	public static List<Employee> getAllEmployeesInformationAsLocal() {
-		return getService().getAllEmployeesInformationAsLocal();
+	public static List<Employee> getAllEmployeesInformationAsLocal(
+		int start, int end) {
+
+		return getService().getAllEmployeesInformationAsLocal(start, end);
 	}
 
 	/**

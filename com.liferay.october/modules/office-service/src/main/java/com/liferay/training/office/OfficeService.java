@@ -89,9 +89,9 @@ public class OfficeService implements OfficeApi {
 	}
 	
 	@Override
-	public List<Employee> getAllEmployeesInformationOffice() {
+	public List<Employee> getAllEmployeesInformationOffice(int start, int end) {
 		// TODO Auto-generated method stub
-		return employeeLocalService.getAllEmployeesInformationAsLocal();
+		return employeeLocalService.getAllEmployeesInformationAsLocal(start,end);
 	}
 	
 

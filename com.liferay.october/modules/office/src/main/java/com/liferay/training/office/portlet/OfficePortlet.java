@@ -1,7 +1,11 @@
 package com.liferay.training.office.portlet;
 
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
+import com.liferay.portal.kernel.util.Validator;
 import com.liferay.training.office.constants.OfficePortletKeys;
+
 
 import java.io.IOException;
 
@@ -24,8 +28,11 @@ import org.osgi.service.component.annotations.Component;
 		"javax.portlet.init-param.view-template=/view.jsp", 
 		"javax.portlet.name=" + OfficePortletKeys.OFFICE,
 		"javax.portlet.resource-bundle=content.Language",
-		"javax.portlet.security-role-ref=power-user,user" }, service = Portlet.class)
+		"javax.portlet.security-role-ref=power-user,user" }, 
+     service = Portlet.class)
+
 public class OfficePortlet extends MVCPortlet {
+	private static Log log = LogFactoryUtil.getLog(OfficePortlet.class);
 /**	
 	@throws IOException 
  * @Override
@@ -114,17 +121,27 @@ public class OfficePortlet extends MVCPortlet {
 	@Override
 	public void render(RenderRequest renderRequest, RenderResponse renderResponse)
 			throws PortletException, IOException {
-		try {
-			String urlPath = renderRequest.getAttribute("jspPath").toString();
-
-			if (urlPath != null)
-				include(urlPath, renderRequest, renderResponse);
+//		try {
 			
+		String req=	renderRequest.getParameter("mvcRenderCommandName");
+		
+		if(req!=null)
+			include(req+".jsp",renderRequest,renderResponse);
+		else
+		super.render(renderRequest, renderResponse);
+		
+		
+		/*if (Validator.isNotNull(renderRequest.getAttribute("jspPath").toString()))
+				include(renderRequest.getAttribute("jspPath").toString(), renderRequest, renderResponse);
+			log.info("calling required JSP page");
 			} catch (Exception e) {
+				log.info("calling required JSP page defaut JSP page search container JSP");
+
 				super.render(renderRequest, renderResponse);
+				//log.error(e);
 		} finally {
 			
 			
-		}
+		}*/
 	}
 }
