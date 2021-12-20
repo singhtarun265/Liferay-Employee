@@ -5,7 +5,7 @@ import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 import com.liferay.portal.kernel.util.Validator;
 import com.liferay.training.office.constants.OfficePortletKeys;
-
+import com.liferay.training.office.mvccommand.SearchEntryMVCRenderCommand;
 
 import java.io.IOException;
 
@@ -15,6 +15,7 @@ import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
 import org.osgi.service.component.annotations.Component;
+import org.osgi.service.component.annotations.Reference;
 
 /**
  * @author Argil DX
@@ -118,30 +119,36 @@ public class OfficePortlet extends MVCPortlet {
 	@Reference
 	OfficeApi officeApi;
 	**/
-	@Override
+	//@Override
 	public void render(RenderRequest renderRequest, RenderResponse renderResponse)
 			throws PortletException, IOException {
-//		try {
+		try {
 			
-		String req=	renderRequest.getParameter("mvcRenderCommandName");
+		/*
+		 * String req= renderRequest.getParameter("mvcRenderCommandName");
+		 * 
+		 * if(req!=null) include(req+".jsp",renderRequest,renderResponse); else
+		 * super.render(renderRequest, renderResponse);
+		 */
 		
-		if(req!=null)
-			include(req+".jsp",renderRequest,renderResponse);
-		else
-		super.render(renderRequest, renderResponse);
-		
-		
-		/*if (Validator.isNotNull(renderRequest.getAttribute("jspPath").toString()))
-				include(renderRequest.getAttribute("jspPath").toString(), renderRequest, renderResponse);
+		if (Validator.isNotNull(renderRequest.getAttribute("jspPath").toString()))
+			include(renderRequest.getAttribute("jspPath").toString(), renderRequest, renderResponse);
 			log.info("calling required JSP page");
-			} catch (Exception e) {
+		
+		} catch (Exception e) {
 				log.info("calling required JSP page defaut JSP page search container JSP");
 
 				super.render(renderRequest, renderResponse);
 				//log.error(e);
 		} finally {
+			System.out.println("Hello render");
 			
-			
-		}*/
+		}
 	}
+
+	 /*
+				 * ( target =
+				 * "(component.name=com.liferay.training.office.mvccommand.SearchEntryMVCRenderCommand)")
+				 */
+	
 }

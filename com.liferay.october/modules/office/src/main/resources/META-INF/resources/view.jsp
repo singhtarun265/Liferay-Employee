@@ -21,7 +21,7 @@
 </portlet:renderURL>
 
 <portlet:renderURL var="searchContainerURL">
-    <portlet:param name="mvcRenderCommandName" value="/searchContainer" />
+    <portlet:param name="mvcRenderCommandName" value="/searchContainers" />
    
 </portlet:renderURL>
 

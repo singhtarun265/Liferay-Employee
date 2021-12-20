@@ -18,8 +18,8 @@ import org.osgi.service.component.annotations.Component;
 		"com.liferay.portlet.header-portlet-css=/css/main.css",
 		"com.liferay.portlet.instanceable=true",
 		"javax.portlet.display-name=Leave",
-		"javax.portlet.init-param.template-path=/",
-		"javax.portlet.init-param.view-template=/view.jsp",
+   	    "javax.portlet.init-param.view-action=/leave/view",
+	    "javax.portlet.init-param.view-template=/leave/view.jsp",
 		"javax.portlet.name=" + LeavePortletKeys.LEAVE,
 		"javax.portlet.resource-bundle=content.Language",
 		"javax.portlet.security-role-ref=power-user,user"

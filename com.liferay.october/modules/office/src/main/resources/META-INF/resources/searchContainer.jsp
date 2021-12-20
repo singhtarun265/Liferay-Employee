@@ -80,7 +80,8 @@
 	<liferay-ui:search-container-column-text property="projectId" name="Project ID" value="${aEmployeeModel.projectId}" />
 	<liferay-ui:search-container-column-text property="createDate" name="Create Date" value="${aEmployeeModel.createDate}" />
 	<liferay-ui:search-container-column-text property="modifiedDate" name="Modified Date" value="${aEmployeeModel.modifiedDate}" />	
-	
+	<liferay-ui:search-container-column-jsp align="right" path="/entry_actions.jsp" />
+	 
 	</liferay-ui:search-container-row>
 	 <liferay-ui:search-iterator searchContainer="${searchContainer}" markupView="lexicon" />
 	<%-- <liferay-ui:search-iterator searchContainer="<%=searchContainer %>"  /> --%>

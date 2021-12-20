@@ -28,16 +28,22 @@ public class DeleteEntryMVCActionCommand  extends BaseMVCActionCommand {
 	@Override
 	protected void doProcessAction(ActionRequest request, ActionResponse response) throws Exception {
 		
-		long empId = ParamUtil.getLong(request, "empId");
-
+	System.out.println("Hello Delete");
+		long empId = Long.parseLong(request.getParameter("empId").toString());
+		String deleteRow =request.getParameter("deleteRow").toString();
 		try {
 			officeApi.deleteEmployeeOffice(empId);
 			System.out.println("Data is deleted");
 			SessionMessages.add(request, "remove");
 			
 		//response.setRenderParameter("mvcPath", "/deleteEmployee.jsp");
-		request.setAttribute("jspPath", "/deleteEmployee.jsp");
 			
+			if(deleteRow.isEmpty())
+		request.setAttribute("jspPath", "/deleteEmployee.jsp");
+			else
+		request.setAttribute("mvcRenderCommandName", "/searchContainers");		
+			
+	
 		} catch (Exception e) {
 			SessionErrors.add(request, "delete-key");
 			System.out.println("The error " + e);
@@ -49,4 +55,6 @@ public class DeleteEntryMVCActionCommand  extends BaseMVCActionCommand {
 
 	@Reference
 	OfficeApi officeApi;
+	
+
 }

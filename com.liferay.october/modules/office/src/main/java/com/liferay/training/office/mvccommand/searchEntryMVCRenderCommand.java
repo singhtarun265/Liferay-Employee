@@ -27,19 +27,20 @@ import org.osgi.service.component.annotations.Reference;
 	    immediate = true,
 	    property = {
 	       "javax.portlet.name=" + OfficePortletKeys.OFFICE,
-	       "mvc.command.name=/searchContainer"
+	       "mvc.command.name=/searchContainers"
 	    },
 	    service = MVCRenderCommand.class
 	)
-public class searchEntryMVCRenderCommand implements MVCRenderCommand {
+public class SearchEntryMVCRenderCommand implements MVCRenderCommand {
 	
-	private static Log log = LogFactoryUtil.getLog(searchEntryMVCRenderCommand.class);
+	private static Log log = LogFactoryUtil.getLog(SearchEntryMVCRenderCommand.class);
 	
 	@Override
 	public String render(RenderRequest renderRequest, RenderResponse renderResponse) throws PortletException {
 		ThemeDisplay themeDisplay = (ThemeDisplay) renderRequest.getAttribute(WebKeys.THEME_DISPLAY);
 		
 		PortletURL iteratorURL=PortletURLFactoryUtil.create(renderRequest, themeDisplay.getPortletDisplay().getId(), themeDisplay.getPlid(), PortletRequest.RENDER_PHASE);
+		iteratorURL.setParameter("mvcRenderCommandName", "/searchContainers");
 		
 		SearchContainer<Employee> searchContainer = null;
 		
@@ -68,11 +69,11 @@ public class searchEntryMVCRenderCommand implements MVCRenderCommand {
 		 SessionMessages.add(renderRequest,"employee-form-success");
 		 log.info("Added employeelist and count attribute to search container"); 
 		
-		
+		//System.out.println("Hello search container");
 	//	response.setRenderParameter("mvcPath", "/viewEmployee.jsp");
 		
-		 renderRequest.setAttribute("jspPath", "/searchContainer.jsp");
-		return "";
+		// renderRequest.setAttribute("jspPath", "/searchContainer.jsp");
+		return "/searchContainer.jsp";
 	}
 
 	@Reference
