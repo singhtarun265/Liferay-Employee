@@ -74,13 +74,13 @@
 	<liferay-ui:search-container-column-text property="userName" name="Username" value="${aEmployeeModel.userName}" />
 	<liferay-ui:search-container-column-text property="userId" name="User ID" value="${aEmployeeModel.userId}" />
 	<liferay-ui:search-container-column-text property="jobTitle" name="Job Title" value="${aEmployeeModel.jobTitle}" />
-	<liferay-ui:search-container-column-text property="phoneNo" name="Phone No" value="${aEmployeeModel.empId}" />
+	<liferay-ui:search-container-column-text property="phoneNo" name="Phone No" value="${aEmployeeModel.phoneNo}" />
 	<liferay-ui:search-container-column-text property="salary" name="Salary" value="${aEmployeeModel.salary}" />
 	<liferay-ui:search-container-column-text property="deptId" name="Department ID" value="${aEmployeeModel.deptId}" />
 	<liferay-ui:search-container-column-text property="projectId" name="Project ID" value="${aEmployeeModel.projectId}" />
 	<liferay-ui:search-container-column-text property="createDate" name="Create Date" value="${aEmployeeModel.createDate}" />
 	<liferay-ui:search-container-column-text property="modifiedDate" name="Modified Date" value="${aEmployeeModel.modifiedDate}" />	
-	<liferay-ui:search-container-column-jsp align="right" path="/entry_actions.jsp" />
+	<liferay-ui:search-container-column-jsp align="right"  name="Actions" path="/entry_actions.jsp" />
 	 
 	</liferay-ui:search-container-row>
 	 <liferay-ui:search-iterator searchContainer="${searchContainer}" markupView="lexicon" />

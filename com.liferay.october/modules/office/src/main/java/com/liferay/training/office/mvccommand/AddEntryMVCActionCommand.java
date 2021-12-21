@@ -20,7 +20,8 @@ import org.osgi.service.component.annotations.Reference;
 	    immediate = true,
 	    property = {
 	        "javax.portlet.name=" + OfficePortletKeys.OFFICE,
-	        "mvc.command.name=/new/addEntry"
+	        "mvc.command.name=/new/addEntry",
+	        "mvc.command.name=/editCurrentEntry"
 	    },
 	    service = MVCActionCommand.class
 	    )
@@ -41,14 +42,32 @@ public class AddEntryMVCActionCommand extends BaseMVCActionCommand {
 		long deptId = ParamUtil.getLong(request, "deptId");
 		long projectId = ParamUtil.getLong(request, "projectId");
 		long userId = ParamUtil.getLong(request, "userId");
-
+		String edit = request.getParameter("editEntry").toString();
+		
 		try {
-			officeApi.addEmployeeOffice(userId, name, jobTitle, phone, salary, deptId, projectId, serviceContext);
-			System.out.println("Data is inserted");
-			SessionMessages.add(request, "employeeAdded");
+			
+			
+			if(edit.contentEquals("edit")) {
+				
+				long empId = Long.parseLong(request.getParameter("empId").toString());
+				System.out.println("Employeed ID"+empId);
+				officeApi.updateEmployeeOffice(userId, empId, name, jobTitle, phone, salary, deptId, projectId, serviceContext);
+				request.setAttribute("mvcRenderCommandName", "/searchContainers");	
+				System.out.println("Data is updated");
+				SessionMessages.add(request, "employeeUpdated");
+				
+			}
+			else {
+			  officeApi.addEmployeeOffice(userId, name, jobTitle, phone, salary, deptId, projectId, serviceContext);
+			  request.setAttribute("jspPath", "/newEmployee.jsp");
+			  System.out.println("Data is inserted");
+			  SessionMessages.add(request, "employeeAdded");
+			}
+			
+			
 			//response.setRenderParameter("mvcPath", "/newEmployee.jsp");
 
-			request.setAttribute("jspPath", "/newEmployee.jsp");
+			
 			
 		} catch (Exception e) {
 			SessionErrors.add(request, "error-key");

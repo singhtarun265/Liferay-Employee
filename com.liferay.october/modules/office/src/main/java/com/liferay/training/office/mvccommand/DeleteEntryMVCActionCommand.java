@@ -2,6 +2,7 @@ package com.liferay.training.office.mvccommand;
 
 import com.liferay.portal.kernel.portlet.bridges.mvc.BaseMVCActionCommand;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCActionCommand;
+import com.liferay.portal.kernel.portlet.bridges.mvc.MVCRenderCommand;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.servlet.SessionMessages;
 import com.liferay.portal.kernel.util.ParamUtil;
@@ -32,18 +33,17 @@ public class DeleteEntryMVCActionCommand  extends BaseMVCActionCommand {
 		long empId = Long.parseLong(request.getParameter("empId").toString());
 		String deleteRow =request.getParameter("deleteRow").toString();
 		try {
-			officeApi.deleteEmployeeOffice(empId);
+			//officeApi.deleteEmployeeOffice(empId);
 			System.out.println("Data is deleted");
 			SessionMessages.add(request, "remove");
 			
 		//response.setRenderParameter("mvcPath", "/deleteEmployee.jsp");
 			
-			if(deleteRow.isEmpty())
+			/*if(deleteRow.isEmpty())
 		request.setAttribute("jspPath", "/deleteEmployee.jsp");
-			else
+			else*/
 		request.setAttribute("mvcRenderCommandName", "/searchContainers");		
-			
-	
+				
 		} catch (Exception e) {
 			SessionErrors.add(request, "delete-key");
 			System.out.println("The error " + e);
@@ -56,5 +56,5 @@ public class DeleteEntryMVCActionCommand  extends BaseMVCActionCommand {
 	@Reference
 	OfficeApi officeApi;
 	
-
+	
 }

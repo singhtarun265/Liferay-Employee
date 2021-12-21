@@ -137,8 +137,9 @@ public class OfficePortlet extends MVCPortlet {
 		
 		} catch (Exception e) {
 				log.info("calling required JSP page defaut JSP page search container JSP");
-
+				
 				super.render(renderRequest, renderResponse);
+				System.out.println("Render catch block");
 				//log.error(e);
 		} finally {
 			System.out.println("Hello render");
@@ -146,9 +147,6 @@ public class OfficePortlet extends MVCPortlet {
 		}
 	}
 
-	 /*
-				 * ( target =
-				 * "(component.name=com.liferay.training.office.mvccommand.SearchEntryMVCRenderCommand)")
-				 */
+	
 	
 }

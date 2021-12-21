@@ -94,11 +94,15 @@ public class OfficeService implements OfficeApi {
 		return employeeLocalService.getAllEmployeesInformationAsLocal(start,end);
 	}
 	
+	@Override
+	public int getEmployeesCountOffice() {
+		// TODO Auto-generated method stub
+		return employeeLocalService.getEmployeesCount();
+		 
+	}
 
 	@Reference
 	EmployeeLocalService employeeLocalService;
-
-
 
 	
 }

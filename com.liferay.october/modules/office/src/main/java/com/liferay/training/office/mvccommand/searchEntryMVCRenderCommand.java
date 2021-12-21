@@ -47,18 +47,16 @@ public class SearchEntryMVCRenderCommand implements MVCRenderCommand {
 		
 		searchContainer = new SearchContainer<>(renderRequest, null, null, SearchContainer.DEFAULT_CUR_PARAM, SearchContainer.DEFAULT_DELTA, iteratorURL, null, "");
 		searchContainer.setEmptyResultsMessage("There are no records to display");
-		searchContainer.setDelta(5);
-		searchContainer.setDeltaConfigurable(true);
+//		searchContainer.setDelta(5);
+//		searchContainer.setDeltaConfigurable(true);
 		
 		
 		List<Employee> employeeList=officeApi.getAllEmployeesInformationOffice(searchContainer.getStart(),searchContainer.getEnd());
 		
-//		List<Employee> employeeList=officeApi.getAllEmployeesInformationOffice(0,5);
-		
-		int count= employeeList.size();
+		int count= officeApi.getEmployeesCountOffice();
 		
 		searchContainer.setResults(employeeList);
-		searchContainer.setTotal(20);
+		searchContainer.setTotal(count);
 		
 		renderRequest.setAttribute("searchContainer", searchContainer);
 			

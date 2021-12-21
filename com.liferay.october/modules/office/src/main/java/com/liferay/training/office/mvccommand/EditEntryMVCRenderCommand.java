@@ -29,12 +29,14 @@ public class EditEntryMVCRenderCommand implements MVCRenderCommand {
 	@Override
 	public String render(RenderRequest request, RenderResponse response) throws PortletException {
 		
-		long empId = Long.parseLong(request.getAttribute("empId").toString());
+		
+		long empId = Long.parseLong(request.getParameter("empId").toString());
 		
 		try {
-			Employee employee = officeApi.getEmployeeOffice(empId);
+			request.setAttribute("employee",officeApi.getEmployeeOffice(empId));
+			
 		} catch (PortalException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
@@ -47,7 +49,7 @@ public class EditEntryMVCRenderCommand implements MVCRenderCommand {
 		 System.out.println("Just before");
 	//	response.setRenderParameter("mvcPath", "/viewEmployee.jsp");
 		
-		return "/viewEmployee.jsp";
+		return "/editEmployee.jsp";
 	}
 
 	@Reference

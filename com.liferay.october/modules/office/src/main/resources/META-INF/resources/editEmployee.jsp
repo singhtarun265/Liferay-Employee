@@ -1,5 +1,5 @@
 <%@ include file="init.jsp"%>
-
+<%@page import="com.liferay.training.employee.model.EmployeeModel" %>
 <portlet:renderURL var="viewURL">
 	<portlet:param name="mvcPath" value="/view.jsp"></portlet:param>
 </portlet:renderURL>
@@ -9,15 +9,27 @@
 </portlet:renderURL>
 
 
-<portlet:actionURL name="/new/addEntry" var="addEntryURL"/>
+<portlet:actionURL name="/editCurrentEntry" var="editEntryURL">
+ 	<portlet:param name="editEntry" value="edit" />
+ 	<portlet:param name="empId" value="${employee.empId}" />
+</portlet:actionURL>
 
+<liferay-ui:success key="employeeUpdated" message="successfully" />
 <liferay-ui:success key="employeeAdded" message="successfully" />
 <liferay-ui:error key="error-key" message="error"/>
-<aui:form action="<%=addEntryURL%>" name="<portlet:namespace />fm">
+
+<aui:form action="<%=editEntryURL%>" name="<portlet:namespace />fm">
+  <aui:model-context bean="${employee}" model="<%=EmployeeModel.class %>"/>
 	<aui:fieldset-group markupView="lexicon">
 		<aui:fieldset label="Basic Info">
 			<aui:row>
-				<aui:col width="50">
+			    <aui:col width="33">
+					<aui:input label="Employee ID" name="empId"
+						 type="text" disabled="true">
+						
+					</aui:input>
+				</aui:col>
+				<aui:col width="33">
 					<aui:input label="Name" name="name" type="text">
 						<aui:validator errorMessage="Please enter the full name"
 							name="required"></aui:validator>
@@ -25,7 +37,7 @@
 						<aui:validator name="maxLength">50</aui:validator>
 					</aui:input>
 				</aui:col>
-				<aui:col width="50">
+				<aui:col width="33">
 					<aui:input label="Job Title" name="jobTitle" type="text">
 						<aui:validator name="alphanum"></aui:validator>
 						<aui:validator name="maxLength">50</aui:validator>
@@ -61,7 +73,7 @@
 					</aui:input>
 				</aui:col>
 				<aui:col width="50">
-					<aui:input label="Salary" name="salary" type="type">
+					<aui:input label="Salary" name="salary" type="text">
 						<aui:validator name="number"></aui:validator>
 						
 					</aui:input>
