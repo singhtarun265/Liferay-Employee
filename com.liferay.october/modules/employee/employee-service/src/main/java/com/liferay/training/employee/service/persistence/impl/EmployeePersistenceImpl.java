@@ -1951,7 +1951,7 @@ public class EmployeePersistenceImpl
 	 * @return the matching employees
 	 */
 	@Override
-	public List<Employee> findBydeptSalary(long deptId, Float salary) {
+	public List<Employee> findBydeptSalary(long deptId, long salary) {
 		return findBydeptSalary(
 			deptId, salary, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
 	}
@@ -1971,7 +1971,7 @@ public class EmployeePersistenceImpl
 	 */
 	@Override
 	public List<Employee> findBydeptSalary(
-		long deptId, Float salary, int start, int end) {
+		long deptId, long salary, int start, int end) {
 
 		return findBydeptSalary(deptId, salary, start, end, null);
 	}
@@ -1992,7 +1992,7 @@ public class EmployeePersistenceImpl
 	 */
 	@Override
 	public List<Employee> findBydeptSalary(
-		long deptId, Float salary, int start, int end,
+		long deptId, long salary, int start, int end,
 		OrderByComparator<Employee> orderByComparator) {
 
 		return findBydeptSalary(
@@ -2016,7 +2016,7 @@ public class EmployeePersistenceImpl
 	 */
 	@Override
 	public List<Employee> findBydeptSalary(
-		long deptId, Float salary, int start, int end,
+		long deptId, long salary, int start, int end,
 		OrderByComparator<Employee> orderByComparator, boolean useFinderCache) {
 
 		FinderPath finderPath = null;
@@ -2046,7 +2046,7 @@ public class EmployeePersistenceImpl
 			if ((list != null) && !list.isEmpty()) {
 				for (Employee employee : list) {
 					if ((deptId != employee.getDeptId()) ||
-						!Objects.equals(salary, employee.getSalary())) {
+						(salary != employee.getSalary())) {
 
 						list = null;
 
@@ -2094,7 +2094,7 @@ public class EmployeePersistenceImpl
 
 				queryPos.add(deptId);
 
-				queryPos.add(salary.floatValue());
+				queryPos.add(salary);
 
 				list = (List<Employee>)QueryUtil.list(
 					query, getDialect(), start, end);
@@ -2127,7 +2127,7 @@ public class EmployeePersistenceImpl
 	 */
 	@Override
 	public Employee findBydeptSalary_First(
-			long deptId, Float salary,
+			long deptId, long salary,
 			OrderByComparator<Employee> orderByComparator)
 		throws NoSuchEmployeeException {
 
@@ -2163,7 +2163,7 @@ public class EmployeePersistenceImpl
 	 */
 	@Override
 	public Employee fetchBydeptSalary_First(
-		long deptId, Float salary,
+		long deptId, long salary,
 		OrderByComparator<Employee> orderByComparator) {
 
 		List<Employee> list = findBydeptSalary(
@@ -2187,7 +2187,7 @@ public class EmployeePersistenceImpl
 	 */
 	@Override
 	public Employee findBydeptSalary_Last(
-			long deptId, Float salary,
+			long deptId, long salary,
 			OrderByComparator<Employee> orderByComparator)
 		throws NoSuchEmployeeException {
 
@@ -2223,7 +2223,7 @@ public class EmployeePersistenceImpl
 	 */
 	@Override
 	public Employee fetchBydeptSalary_Last(
-		long deptId, Float salary,
+		long deptId, long salary,
 		OrderByComparator<Employee> orderByComparator) {
 
 		int count = countBydeptSalary(deptId, salary);
@@ -2254,7 +2254,7 @@ public class EmployeePersistenceImpl
 	 */
 	@Override
 	public Employee[] findBydeptSalary_PrevAndNext(
-			long empId, long deptId, Float salary,
+			long empId, long deptId, long salary,
 			OrderByComparator<Employee> orderByComparator)
 		throws NoSuchEmployeeException {
 
@@ -2286,7 +2286,7 @@ public class EmployeePersistenceImpl
 	}
 
 	protected Employee getBydeptSalary_PrevAndNext(
-		Session session, Employee employee, long deptId, Float salary,
+		Session session, Employee employee, long deptId, long salary,
 		OrderByComparator<Employee> orderByComparator, boolean previous) {
 
 		StringBundler sb = null;
@@ -2377,7 +2377,7 @@ public class EmployeePersistenceImpl
 
 		queryPos.add(deptId);
 
-		queryPos.add(salary.floatValue());
+		queryPos.add(salary);
 
 		if (orderByComparator != null) {
 			for (Object orderByConditionValue :
@@ -2404,7 +2404,7 @@ public class EmployeePersistenceImpl
 	 * @param salary the salary
 	 */
 	@Override
-	public void removeBydeptSalary(long deptId, Float salary) {
+	public void removeBydeptSalary(long deptId, long salary) {
 		for (Employee employee :
 				findBydeptSalary(
 					deptId, salary, QueryUtil.ALL_POS, QueryUtil.ALL_POS,
@@ -2422,7 +2422,7 @@ public class EmployeePersistenceImpl
 	 * @return the number of matching employees
 	 */
 	@Override
-	public int countBydeptSalary(long deptId, Float salary) {
+	public int countBydeptSalary(long deptId, long salary) {
 		FinderPath finderPath = _finderPathCountBydeptSalary;
 
 		Object[] finderArgs = new Object[] {deptId, salary};
@@ -2451,7 +2451,7 @@ public class EmployeePersistenceImpl
 
 				queryPos.add(deptId);
 
-				queryPos.add(salary.floatValue());
+				queryPos.add(salary);
 
 				count = (Long)query.uniqueResult();
 
@@ -2486,7 +2486,7 @@ public class EmployeePersistenceImpl
 	 * @return the matching employees
 	 */
 	@Override
-	public List<Employee> findByprojectSalary(long projectId, Float salary) {
+	public List<Employee> findByprojectSalary(long projectId, long salary) {
 		return findByprojectSalary(
 			projectId, salary, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
 	}
@@ -2506,7 +2506,7 @@ public class EmployeePersistenceImpl
 	 */
 	@Override
 	public List<Employee> findByprojectSalary(
-		long projectId, Float salary, int start, int end) {
+		long projectId, long salary, int start, int end) {
 
 		return findByprojectSalary(projectId, salary, start, end, null);
 	}
@@ -2527,7 +2527,7 @@ public class EmployeePersistenceImpl
 	 */
 	@Override
 	public List<Employee> findByprojectSalary(
-		long projectId, Float salary, int start, int end,
+		long projectId, long salary, int start, int end,
 		OrderByComparator<Employee> orderByComparator) {
 
 		return findByprojectSalary(
@@ -2551,7 +2551,7 @@ public class EmployeePersistenceImpl
 	 */
 	@Override
 	public List<Employee> findByprojectSalary(
-		long projectId, Float salary, int start, int end,
+		long projectId, long salary, int start, int end,
 		OrderByComparator<Employee> orderByComparator, boolean useFinderCache) {
 
 		FinderPath finderPath = null;
@@ -2581,7 +2581,7 @@ public class EmployeePersistenceImpl
 			if ((list != null) && !list.isEmpty()) {
 				for (Employee employee : list) {
 					if ((projectId != employee.getProjectId()) ||
-						!Objects.equals(salary, employee.getSalary())) {
+						(salary != employee.getSalary())) {
 
 						list = null;
 
@@ -2629,7 +2629,7 @@ public class EmployeePersistenceImpl
 
 				queryPos.add(projectId);
 
-				queryPos.add(salary.floatValue());
+				queryPos.add(salary);
 
 				list = (List<Employee>)QueryUtil.list(
 					query, getDialect(), start, end);
@@ -2662,7 +2662,7 @@ public class EmployeePersistenceImpl
 	 */
 	@Override
 	public Employee findByprojectSalary_First(
-			long projectId, Float salary,
+			long projectId, long salary,
 			OrderByComparator<Employee> orderByComparator)
 		throws NoSuchEmployeeException {
 
@@ -2698,7 +2698,7 @@ public class EmployeePersistenceImpl
 	 */
 	@Override
 	public Employee fetchByprojectSalary_First(
-		long projectId, Float salary,
+		long projectId, long salary,
 		OrderByComparator<Employee> orderByComparator) {
 
 		List<Employee> list = findByprojectSalary(
@@ -2722,7 +2722,7 @@ public class EmployeePersistenceImpl
 	 */
 	@Override
 	public Employee findByprojectSalary_Last(
-			long projectId, Float salary,
+			long projectId, long salary,
 			OrderByComparator<Employee> orderByComparator)
 		throws NoSuchEmployeeException {
 
@@ -2758,7 +2758,7 @@ public class EmployeePersistenceImpl
 	 */
 	@Override
 	public Employee fetchByprojectSalary_Last(
-		long projectId, Float salary,
+		long projectId, long salary,
 		OrderByComparator<Employee> orderByComparator) {
 
 		int count = countByprojectSalary(projectId, salary);
@@ -2789,7 +2789,7 @@ public class EmployeePersistenceImpl
 	 */
 	@Override
 	public Employee[] findByprojectSalary_PrevAndNext(
-			long empId, long projectId, Float salary,
+			long empId, long projectId, long salary,
 			OrderByComparator<Employee> orderByComparator)
 		throws NoSuchEmployeeException {
 
@@ -2821,7 +2821,7 @@ public class EmployeePersistenceImpl
 	}
 
 	protected Employee getByprojectSalary_PrevAndNext(
-		Session session, Employee employee, long projectId, Float salary,
+		Session session, Employee employee, long projectId, long salary,
 		OrderByComparator<Employee> orderByComparator, boolean previous) {
 
 		StringBundler sb = null;
@@ -2912,7 +2912,7 @@ public class EmployeePersistenceImpl
 
 		queryPos.add(projectId);
 
-		queryPos.add(salary.floatValue());
+		queryPos.add(salary);
 
 		if (orderByComparator != null) {
 			for (Object orderByConditionValue :
@@ -2939,7 +2939,7 @@ public class EmployeePersistenceImpl
 	 * @param salary the salary
 	 */
 	@Override
-	public void removeByprojectSalary(long projectId, Float salary) {
+	public void removeByprojectSalary(long projectId, long salary) {
 		for (Employee employee :
 				findByprojectSalary(
 					projectId, salary, QueryUtil.ALL_POS, QueryUtil.ALL_POS,
@@ -2957,7 +2957,7 @@ public class EmployeePersistenceImpl
 	 * @return the number of matching employees
 	 */
 	@Override
-	public int countByprojectSalary(long projectId, Float salary) {
+	public int countByprojectSalary(long projectId, long salary) {
 		FinderPath finderPath = _finderPathCountByprojectSalary;
 
 		Object[] finderArgs = new Object[] {projectId, salary};
@@ -2986,7 +2986,7 @@ public class EmployeePersistenceImpl
 
 				queryPos.add(projectId);
 
-				queryPos.add(salary.floatValue());
+				queryPos.add(salary);
 
 				count = (Long)query.uniqueResult();
 
@@ -3021,7 +3021,7 @@ public class EmployeePersistenceImpl
 	 * @return the matching employees
 	 */
 	@Override
-	public List<Employee> findBynameSalary(String name, Float salary) {
+	public List<Employee> findBynameSalary(String name, long salary) {
 		return findBynameSalary(
 			name, salary, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
 	}
@@ -3041,7 +3041,7 @@ public class EmployeePersistenceImpl
 	 */
 	@Override
 	public List<Employee> findBynameSalary(
-		String name, Float salary, int start, int end) {
+		String name, long salary, int start, int end) {
 
 		return findBynameSalary(name, salary, start, end, null);
 	}
@@ -3062,7 +3062,7 @@ public class EmployeePersistenceImpl
 	 */
 	@Override
 	public List<Employee> findBynameSalary(
-		String name, Float salary, int start, int end,
+		String name, long salary, int start, int end,
 		OrderByComparator<Employee> orderByComparator) {
 
 		return findBynameSalary(
@@ -3086,7 +3086,7 @@ public class EmployeePersistenceImpl
 	 */
 	@Override
 	public List<Employee> findBynameSalary(
-		String name, Float salary, int start, int end,
+		String name, long salary, int start, int end,
 		OrderByComparator<Employee> orderByComparator, boolean useFinderCache) {
 
 		name = Objects.toString(name, "");
@@ -3118,7 +3118,7 @@ public class EmployeePersistenceImpl
 			if ((list != null) && !list.isEmpty()) {
 				for (Employee employee : list) {
 					if (!name.equals(employee.getName()) ||
-						!Objects.equals(salary, employee.getSalary())) {
+						(salary != employee.getSalary())) {
 
 						list = null;
 
@@ -3177,7 +3177,7 @@ public class EmployeePersistenceImpl
 					queryPos.add(name);
 				}
 
-				queryPos.add(salary.floatValue());
+				queryPos.add(salary);
 
 				list = (List<Employee>)QueryUtil.list(
 					query, getDialect(), start, end);
@@ -3210,7 +3210,7 @@ public class EmployeePersistenceImpl
 	 */
 	@Override
 	public Employee findBynameSalary_First(
-			String name, Float salary,
+			String name, long salary,
 			OrderByComparator<Employee> orderByComparator)
 		throws NoSuchEmployeeException {
 
@@ -3246,7 +3246,7 @@ public class EmployeePersistenceImpl
 	 */
 	@Override
 	public Employee fetchBynameSalary_First(
-		String name, Float salary,
+		String name, long salary,
 		OrderByComparator<Employee> orderByComparator) {
 
 		List<Employee> list = findBynameSalary(
@@ -3270,7 +3270,7 @@ public class EmployeePersistenceImpl
 	 */
 	@Override
 	public Employee findBynameSalary_Last(
-			String name, Float salary,
+			String name, long salary,
 			OrderByComparator<Employee> orderByComparator)
 		throws NoSuchEmployeeException {
 
@@ -3306,7 +3306,7 @@ public class EmployeePersistenceImpl
 	 */
 	@Override
 	public Employee fetchBynameSalary_Last(
-		String name, Float salary,
+		String name, long salary,
 		OrderByComparator<Employee> orderByComparator) {
 
 		int count = countBynameSalary(name, salary);
@@ -3337,7 +3337,7 @@ public class EmployeePersistenceImpl
 	 */
 	@Override
 	public Employee[] findBynameSalary_PrevAndNext(
-			long empId, String name, Float salary,
+			long empId, String name, long salary,
 			OrderByComparator<Employee> orderByComparator)
 		throws NoSuchEmployeeException {
 
@@ -3371,7 +3371,7 @@ public class EmployeePersistenceImpl
 	}
 
 	protected Employee getBynameSalary_PrevAndNext(
-		Session session, Employee employee, String name, Float salary,
+		Session session, Employee employee, String name, long salary,
 		OrderByComparator<Employee> orderByComparator, boolean previous) {
 
 		StringBundler sb = null;
@@ -3473,7 +3473,7 @@ public class EmployeePersistenceImpl
 			queryPos.add(name);
 		}
 
-		queryPos.add(salary.floatValue());
+		queryPos.add(salary);
 
 		if (orderByComparator != null) {
 			for (Object orderByConditionValue :
@@ -3500,7 +3500,7 @@ public class EmployeePersistenceImpl
 	 * @param salary the salary
 	 */
 	@Override
-	public void removeBynameSalary(String name, Float salary) {
+	public void removeBynameSalary(String name, long salary) {
 		for (Employee employee :
 				findBynameSalary(
 					name, salary, QueryUtil.ALL_POS, QueryUtil.ALL_POS, null)) {
@@ -3517,7 +3517,7 @@ public class EmployeePersistenceImpl
 	 * @return the number of matching employees
 	 */
 	@Override
-	public int countBynameSalary(String name, Float salary) {
+	public int countBynameSalary(String name, long salary) {
 		name = Objects.toString(name, "");
 
 		FinderPath finderPath = _finderPathCountBynameSalary;
@@ -3559,7 +3559,7 @@ public class EmployeePersistenceImpl
 					queryPos.add(name);
 				}
 
-				queryPos.add(salary.floatValue());
+				queryPos.add(salary);
 
 				count = (Long)query.uniqueResult();
 
@@ -4223,7 +4223,7 @@ public class EmployeePersistenceImpl
 		_finderPathWithPaginationFindBydeptSalary = _createFinderPath(
 			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findBydeptSalary",
 			new String[] {
-				Long.class.getName(), Float.class.getName(),
+				Long.class.getName(), Long.class.getName(),
 				Integer.class.getName(), Integer.class.getName(),
 				OrderByComparator.class.getName()
 			},
@@ -4231,18 +4231,18 @@ public class EmployeePersistenceImpl
 
 		_finderPathWithoutPaginationFindBydeptSalary = _createFinderPath(
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findBydeptSalary",
-			new String[] {Long.class.getName(), Float.class.getName()},
+			new String[] {Long.class.getName(), Long.class.getName()},
 			new String[] {"deptId", "salary"}, true);
 
 		_finderPathCountBydeptSalary = _createFinderPath(
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countBydeptSalary",
-			new String[] {Long.class.getName(), Float.class.getName()},
+			new String[] {Long.class.getName(), Long.class.getName()},
 			new String[] {"deptId", "salary"}, false);
 
 		_finderPathWithPaginationFindByprojectSalary = _createFinderPath(
 			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findByprojectSalary",
 			new String[] {
-				Long.class.getName(), Float.class.getName(),
+				Long.class.getName(), Long.class.getName(),
 				Integer.class.getName(), Integer.class.getName(),
 				OrderByComparator.class.getName()
 			},
@@ -4250,18 +4250,18 @@ public class EmployeePersistenceImpl
 
 		_finderPathWithoutPaginationFindByprojectSalary = _createFinderPath(
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findByprojectSalary",
-			new String[] {Long.class.getName(), Float.class.getName()},
+			new String[] {Long.class.getName(), Long.class.getName()},
 			new String[] {"projectId", "salary"}, true);
 
 		_finderPathCountByprojectSalary = _createFinderPath(
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countByprojectSalary",
-			new String[] {Long.class.getName(), Float.class.getName()},
+			new String[] {Long.class.getName(), Long.class.getName()},
 			new String[] {"projectId", "salary"}, false);
 
 		_finderPathWithPaginationFindBynameSalary = _createFinderPath(
 			FINDER_CLASS_NAME_LIST_WITH_PAGINATION, "findBynameSalary",
 			new String[] {
-				String.class.getName(), Float.class.getName(),
+				String.class.getName(), Long.class.getName(),
 				Integer.class.getName(), Integer.class.getName(),
 				OrderByComparator.class.getName()
 			},
@@ -4269,12 +4269,12 @@ public class EmployeePersistenceImpl
 
 		_finderPathWithoutPaginationFindBynameSalary = _createFinderPath(
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "findBynameSalary",
-			new String[] {String.class.getName(), Float.class.getName()},
+			new String[] {String.class.getName(), Long.class.getName()},
 			new String[] {"name", "salary"}, true);
 
 		_finderPathCountBynameSalary = _createFinderPath(
 			FINDER_CLASS_NAME_LIST_WITHOUT_PAGINATION, "countBynameSalary",
-			new String[] {String.class.getName(), Float.class.getName()},
+			new String[] {String.class.getName(), Long.class.getName()},
 			new String[] {"name", "salary"}, false);
 	}
 

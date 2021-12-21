@@ -25,7 +25,7 @@ import org.osgi.service.component.annotations.Reference;
 public class OfficeService implements OfficeApi {
 
 	@Override
-	public Employee addEmployeeOffice(long userId, String name, String jobTitle, String phoneNo, float salary,
+	public Employee addEmployeeOffice(long userId, String name, String jobTitle, String phoneNo, long salary,
 			long deptId, long projectId, ServiceContext serviceContext) throws PortalException {
 		
 		return employeeLocalService.addEmployee(userId, name, jobTitle, phoneNo, salary, deptId, projectId, serviceContext);
@@ -33,7 +33,7 @@ public class OfficeService implements OfficeApi {
 
 	@Override
 	public Employee updateEmployeeOffice(long userId, long empId, String name, String jobTitle, String phoneNo,
-			float salary, long deptId, long projectId, ServiceContext serviceContext) throws PortalException {
+			long salary, long deptId, long projectId, ServiceContext serviceContext) throws PortalException {
 		// TODO Auto-generated method stub
 		return employeeLocalService.updateEmployee(userId, empId, name, jobTitle, phoneNo, salary, deptId, projectId, serviceContext);
 	}
@@ -52,26 +52,26 @@ public class OfficeService implements OfficeApi {
 	}
 
 	@Override
-	public List<Employee> getEmployeesOffice(long deptId, float salary) {
+	public List<Employee> getEmployeesOffice(long deptId, long salary) {
 		// TODO Auto-generated method stub
 		return employeeLocalService.getEmployees(deptId, salary);
 	}
 
 	@Override
-	public List<Employee> getEmployeesOffice(long deptId, float salary, int start, int end) {
+	public List<Employee> getEmployeesOffice(long deptId, long salary, int start, int end) {
 		// TODO Auto-generated method stub
 		return employeeLocalService.getEmployees(deptId, salary, start, end);
 	}
 
 	@Override
-	public List<Employee> getEmployeesOffice(long deptId, float salary, int start, int end,
+	public List<Employee> getEmployeesOffice(long deptId, long salary, int start, int end,
 			OrderByComparator<Employee> obc) {
 		// TODO Auto-generated method stub
 		return employeeLocalService.getEmployees(deptId, salary, start, end, obc);
 	}
 
 	@Override
-	public int getEmployeesCountOffice(String name, float salary) {
+	public int getEmployeesCountOffice(String name, long salary) {
 		// TODO Auto-generated method stub
 		return employeeLocalService.getEmployeesCount(name, salary);
 	}

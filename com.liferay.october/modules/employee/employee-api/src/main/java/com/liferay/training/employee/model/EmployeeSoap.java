@@ -188,11 +188,11 @@ public class EmployeeSoap implements Serializable {
 		_phoneNo = phoneNo;
 	}
 
-	public Float getSalary() {
+	public long getSalary() {
 		return _salary;
 	}
 
-	public void setSalary(Float salary) {
+	public void setSalary(long salary) {
 		_salary = salary;
 	}
 
@@ -223,7 +223,7 @@ public class EmployeeSoap implements Serializable {
 	private String _name;
 	private String _jobTitle;
 	private String _phoneNo;
-	private Float _salary;
+	private long _salary;
 	private long _deptId;
 	private long _projectId;
 

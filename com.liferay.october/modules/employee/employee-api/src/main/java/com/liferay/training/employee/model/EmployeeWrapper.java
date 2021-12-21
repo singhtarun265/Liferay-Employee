@@ -129,7 +129,7 @@ public class EmployeeWrapper
 			setPhoneNo(phoneNo);
 		}
 
-		Float salary = (Float)attributes.get("salary");
+		Long salary = (Long)attributes.get("salary");
 
 		if (salary != null) {
 			setSalary(salary);
@@ -264,7 +264,7 @@ public class EmployeeWrapper
 	 * @return the salary of this employee
 	 */
 	@Override
-	public Float getSalary() {
+	public long getSalary() {
 		return model.getSalary();
 	}
 
@@ -429,7 +429,7 @@ public class EmployeeWrapper
 	 * @param salary the salary of this employee
 	 */
 	@Override
-	public void setSalary(Float salary) {
+	public void setSalary(long salary) {
 		model.setSalary(salary);
 	}
 

@@ -14,47 +14,40 @@ import javax.portlet.ActionResponse;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
-@Component(
-	    immediate = true,
-	    property = {
-	       "javax.portlet.name=" + OfficePortletKeys.OFFICE,
-	       "mvc.command.name=/deleteEntry"
-	    },
-	    service = MVCActionCommand.class
-	)
-public class DeleteEntryMVCActionCommand  extends BaseMVCActionCommand {
+@Component(immediate = true, property = { "javax.portlet.name=" + OfficePortletKeys.OFFICE,
+		"mvc.command.name=/deleteEntry" }, 
+		service = MVCActionCommand.class)
 
-	
+public class DeleteEntryMVCActionCommand extends BaseMVCActionCommand {
 
 	@Override
 	protected void doProcessAction(ActionRequest request, ActionResponse response) throws Exception {
-		
-	System.out.println("Hello Delete");
-		long empId = Long.parseLong(request.getParameter("empId").toString());
-		String deleteRow =request.getParameter("deleteRow").toString();
+
+			System.out.println("Hello Delete");
+			long empId = Long.parseLong(request.getParameter("empId").toString());
+			String deleteRow = request.getParameter("deleteRow").toString();
+			String backUrl = request.getParameter("backUrl").toString();
+			
 		try {
-			//officeApi.deleteEmployeeOffice(empId);
+			officeApi.deleteEmployeeOffice(empId);
 			System.out.println("Data is deleted");
 			SessionMessages.add(request, "remove");
-			
-		//response.setRenderParameter("mvcPath", "/deleteEmployee.jsp");
-			
-			/*if(deleteRow.isEmpty())
-		request.setAttribute("jspPath", "/deleteEmployee.jsp");
-			else*/
-		request.setAttribute("mvcRenderCommandName", "/searchContainers");		
-				
+
+			if (deleteRow.isEmpty())
+				request.setAttribute("jspPath", "/deleteEmployee.jsp");
+			else
+				sendRedirect(request, response, backUrl);
+
 		} catch (Exception e) {
 			SessionErrors.add(request, "delete-key");
 			System.out.println("The error " + e);
 			System.err.println(e);
 
 		}
-		
+
 	}
 
 	@Reference
 	OfficeApi officeApi;
-	
-	
+
 }

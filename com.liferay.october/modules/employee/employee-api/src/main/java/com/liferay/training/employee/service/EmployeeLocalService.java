@@ -79,7 +79,7 @@ public interface EmployeeLocalService
 
 	public Employee addEmployee(
 			long userId, String name, String jobTitle, String phoneNo,
-			float salary, long deptId, long projectId,
+			long salary, long deptId, long projectId,
 			ServiceContext serviceContext)
 		throws PortalException;
 
@@ -263,15 +263,15 @@ public interface EmployeeLocalService
 	public List<Employee> getEmployees(int start, int end);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public List<Employee> getEmployees(long deptId, float salary);
+	public List<Employee> getEmployees(long deptId, long salary);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<Employee> getEmployees(
-		long deptId, float salary, int start, int end);
+		long deptId, long salary, int start, int end);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public List<Employee> getEmployees(
-		long deptId, float salary, int start, int end,
+		long deptId, long salary, int start, int end,
 		OrderByComparator<Employee> obc);
 
 	/**
@@ -309,7 +309,7 @@ public interface EmployeeLocalService
 	public int getEmployeesCount();
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public int getEmployeesCount(String name, float salary);
+	public int getEmployeesCount(String name, long salary);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 	public ExportActionableDynamicQuery getExportActionableDynamicQuery(
@@ -348,7 +348,7 @@ public interface EmployeeLocalService
 
 	public Employee updateEmployee(
 			long userId, long empId, String name, String jobTitle,
-			String phoneNo, float salary, long deptId, long projectId,
+			String phoneNo, long salary, long deptId, long projectId,
 			ServiceContext serviceContext)
 		throws PortalException;
 

@@ -53,7 +53,7 @@ public class EmployeeServiceHttp {
 
 	public static com.liferay.training.employee.model.Employee addEmployee(
 			HttpPrincipal httpPrincipal, long userId, String name,
-			String jobTitle, String phoneNo, float salary, long deptId,
+			String jobTitle, String phoneNo, long salary, long deptId,
 			long projectId,
 			com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -97,7 +97,7 @@ public class EmployeeServiceHttp {
 
 	public static com.liferay.training.employee.model.Employee updateEmployee(
 			HttpPrincipal httpPrincipal, long userId, long empId, String name,
-			String jobTitle, String phoneNo, float salary, long deptId,
+			String jobTitle, String phoneNo, long salary, long deptId,
 			long projectId,
 			com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
@@ -218,7 +218,7 @@ public class EmployeeServiceHttp {
 	}
 
 	public static int getEmployeesCount(
-		HttpPrincipal httpPrincipal, String name, float salary) {
+		HttpPrincipal httpPrincipal, String name, long salary) {
 
 		try {
 			MethodKey methodKey = new MethodKey(
@@ -250,7 +250,7 @@ public class EmployeeServiceHttp {
 	}
 
 	public static java.util.List<com.liferay.training.employee.model.Employee>
-		getEmployees(HttpPrincipal httpPrincipal, long deptId, float salary) {
+		getEmployees(HttpPrincipal httpPrincipal, long deptId, long salary) {
 
 		try {
 			MethodKey methodKey = new MethodKey(
@@ -389,14 +389,14 @@ public class EmployeeServiceHttp {
 	private static Log _log = LogFactoryUtil.getLog(EmployeeServiceHttp.class);
 
 	private static final Class<?>[] _addEmployeeParameterTypes0 = new Class[] {
-		long.class, String.class, String.class, String.class, float.class,
+		long.class, String.class, String.class, String.class, long.class,
 		long.class, long.class,
 		com.liferay.portal.kernel.service.ServiceContext.class
 	};
 	private static final Class<?>[] _updateEmployeeParameterTypes1 =
 		new Class[] {
 			long.class, long.class, String.class, String.class, String.class,
-			float.class, long.class, long.class,
+			long.class, long.class, long.class,
 			com.liferay.portal.kernel.service.ServiceContext.class
 		};
 	private static final Class<?>[] _deleteEmployeeParameterTypes2 =
@@ -405,9 +405,9 @@ public class EmployeeServiceHttp {
 		long.class
 	};
 	private static final Class<?>[] _getEmployeesCountParameterTypes4 =
-		new Class[] {String.class, float.class};
+		new Class[] {String.class, long.class};
 	private static final Class<?>[] _getEmployeesParameterTypes5 = new Class[] {
-		long.class, float.class
+		long.class, long.class
 	};
 	private static final Class<?>[]
 		_getEmployeeByGroupIdAndUserIdAsRemoteParameterTypes6 = new Class[] {

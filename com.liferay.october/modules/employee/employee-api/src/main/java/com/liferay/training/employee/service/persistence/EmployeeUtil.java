@@ -702,7 +702,7 @@ public class EmployeeUtil {
 	 * @param salary the salary
 	 * @return the matching employees
 	 */
-	public static List<Employee> findBydeptSalary(long deptId, Float salary) {
+	public static List<Employee> findBydeptSalary(long deptId, long salary) {
 		return getPersistence().findBydeptSalary(deptId, salary);
 	}
 
@@ -720,7 +720,7 @@ public class EmployeeUtil {
 	 * @return the range of matching employees
 	 */
 	public static List<Employee> findBydeptSalary(
-		long deptId, Float salary, int start, int end) {
+		long deptId, long salary, int start, int end) {
 
 		return getPersistence().findBydeptSalary(deptId, salary, start, end);
 	}
@@ -740,7 +740,7 @@ public class EmployeeUtil {
 	 * @return the ordered range of matching employees
 	 */
 	public static List<Employee> findBydeptSalary(
-		long deptId, Float salary, int start, int end,
+		long deptId, long salary, int start, int end,
 		OrderByComparator<Employee> orderByComparator) {
 
 		return getPersistence().findBydeptSalary(
@@ -763,7 +763,7 @@ public class EmployeeUtil {
 	 * @return the ordered range of matching employees
 	 */
 	public static List<Employee> findBydeptSalary(
-		long deptId, Float salary, int start, int end,
+		long deptId, long salary, int start, int end,
 		OrderByComparator<Employee> orderByComparator, boolean useFinderCache) {
 
 		return getPersistence().findBydeptSalary(
@@ -780,7 +780,7 @@ public class EmployeeUtil {
 	 * @throws NoSuchEmployeeException if a matching employee could not be found
 	 */
 	public static Employee findBydeptSalary_First(
-			long deptId, Float salary,
+			long deptId, long salary,
 			OrderByComparator<Employee> orderByComparator)
 		throws com.liferay.training.employee.exception.NoSuchEmployeeException {
 
@@ -797,7 +797,7 @@ public class EmployeeUtil {
 	 * @return the first matching employee, or <code>null</code> if a matching employee could not be found
 	 */
 	public static Employee fetchBydeptSalary_First(
-		long deptId, Float salary,
+		long deptId, long salary,
 		OrderByComparator<Employee> orderByComparator) {
 
 		return getPersistence().fetchBydeptSalary_First(
@@ -814,7 +814,7 @@ public class EmployeeUtil {
 	 * @throws NoSuchEmployeeException if a matching employee could not be found
 	 */
 	public static Employee findBydeptSalary_Last(
-			long deptId, Float salary,
+			long deptId, long salary,
 			OrderByComparator<Employee> orderByComparator)
 		throws com.liferay.training.employee.exception.NoSuchEmployeeException {
 
@@ -831,7 +831,7 @@ public class EmployeeUtil {
 	 * @return the last matching employee, or <code>null</code> if a matching employee could not be found
 	 */
 	public static Employee fetchBydeptSalary_Last(
-		long deptId, Float salary,
+		long deptId, long salary,
 		OrderByComparator<Employee> orderByComparator) {
 
 		return getPersistence().fetchBydeptSalary_Last(
@@ -849,7 +849,7 @@ public class EmployeeUtil {
 	 * @throws NoSuchEmployeeException if a employee with the primary key could not be found
 	 */
 	public static Employee[] findBydeptSalary_PrevAndNext(
-			long empId, long deptId, Float salary,
+			long empId, long deptId, long salary,
 			OrderByComparator<Employee> orderByComparator)
 		throws com.liferay.training.employee.exception.NoSuchEmployeeException {
 
@@ -863,7 +863,7 @@ public class EmployeeUtil {
 	 * @param deptId the dept ID
 	 * @param salary the salary
 	 */
-	public static void removeBydeptSalary(long deptId, Float salary) {
+	public static void removeBydeptSalary(long deptId, long salary) {
 		getPersistence().removeBydeptSalary(deptId, salary);
 	}
 
@@ -874,7 +874,7 @@ public class EmployeeUtil {
 	 * @param salary the salary
 	 * @return the number of matching employees
 	 */
-	public static int countBydeptSalary(long deptId, Float salary) {
+	public static int countBydeptSalary(long deptId, long salary) {
 		return getPersistence().countBydeptSalary(deptId, salary);
 	}
 
@@ -886,7 +886,7 @@ public class EmployeeUtil {
 	 * @return the matching employees
 	 */
 	public static List<Employee> findByprojectSalary(
-		long projectId, Float salary) {
+		long projectId, long salary) {
 
 		return getPersistence().findByprojectSalary(projectId, salary);
 	}
@@ -905,7 +905,7 @@ public class EmployeeUtil {
 	 * @return the range of matching employees
 	 */
 	public static List<Employee> findByprojectSalary(
-		long projectId, Float salary, int start, int end) {
+		long projectId, long salary, int start, int end) {
 
 		return getPersistence().findByprojectSalary(
 			projectId, salary, start, end);
@@ -926,7 +926,7 @@ public class EmployeeUtil {
 	 * @return the ordered range of matching employees
 	 */
 	public static List<Employee> findByprojectSalary(
-		long projectId, Float salary, int start, int end,
+		long projectId, long salary, int start, int end,
 		OrderByComparator<Employee> orderByComparator) {
 
 		return getPersistence().findByprojectSalary(
@@ -949,7 +949,7 @@ public class EmployeeUtil {
 	 * @return the ordered range of matching employees
 	 */
 	public static List<Employee> findByprojectSalary(
-		long projectId, Float salary, int start, int end,
+		long projectId, long salary, int start, int end,
 		OrderByComparator<Employee> orderByComparator, boolean useFinderCache) {
 
 		return getPersistence().findByprojectSalary(
@@ -966,7 +966,7 @@ public class EmployeeUtil {
 	 * @throws NoSuchEmployeeException if a matching employee could not be found
 	 */
 	public static Employee findByprojectSalary_First(
-			long projectId, Float salary,
+			long projectId, long salary,
 			OrderByComparator<Employee> orderByComparator)
 		throws com.liferay.training.employee.exception.NoSuchEmployeeException {
 
@@ -983,7 +983,7 @@ public class EmployeeUtil {
 	 * @return the first matching employee, or <code>null</code> if a matching employee could not be found
 	 */
 	public static Employee fetchByprojectSalary_First(
-		long projectId, Float salary,
+		long projectId, long salary,
 		OrderByComparator<Employee> orderByComparator) {
 
 		return getPersistence().fetchByprojectSalary_First(
@@ -1000,7 +1000,7 @@ public class EmployeeUtil {
 	 * @throws NoSuchEmployeeException if a matching employee could not be found
 	 */
 	public static Employee findByprojectSalary_Last(
-			long projectId, Float salary,
+			long projectId, long salary,
 			OrderByComparator<Employee> orderByComparator)
 		throws com.liferay.training.employee.exception.NoSuchEmployeeException {
 
@@ -1017,7 +1017,7 @@ public class EmployeeUtil {
 	 * @return the last matching employee, or <code>null</code> if a matching employee could not be found
 	 */
 	public static Employee fetchByprojectSalary_Last(
-		long projectId, Float salary,
+		long projectId, long salary,
 		OrderByComparator<Employee> orderByComparator) {
 
 		return getPersistence().fetchByprojectSalary_Last(
@@ -1035,7 +1035,7 @@ public class EmployeeUtil {
 	 * @throws NoSuchEmployeeException if a employee with the primary key could not be found
 	 */
 	public static Employee[] findByprojectSalary_PrevAndNext(
-			long empId, long projectId, Float salary,
+			long empId, long projectId, long salary,
 			OrderByComparator<Employee> orderByComparator)
 		throws com.liferay.training.employee.exception.NoSuchEmployeeException {
 
@@ -1049,7 +1049,7 @@ public class EmployeeUtil {
 	 * @param projectId the project ID
 	 * @param salary the salary
 	 */
-	public static void removeByprojectSalary(long projectId, Float salary) {
+	public static void removeByprojectSalary(long projectId, long salary) {
 		getPersistence().removeByprojectSalary(projectId, salary);
 	}
 
@@ -1060,7 +1060,7 @@ public class EmployeeUtil {
 	 * @param salary the salary
 	 * @return the number of matching employees
 	 */
-	public static int countByprojectSalary(long projectId, Float salary) {
+	public static int countByprojectSalary(long projectId, long salary) {
 		return getPersistence().countByprojectSalary(projectId, salary);
 	}
 
@@ -1071,7 +1071,7 @@ public class EmployeeUtil {
 	 * @param salary the salary
 	 * @return the matching employees
 	 */
-	public static List<Employee> findBynameSalary(String name, Float salary) {
+	public static List<Employee> findBynameSalary(String name, long salary) {
 		return getPersistence().findBynameSalary(name, salary);
 	}
 
@@ -1089,7 +1089,7 @@ public class EmployeeUtil {
 	 * @return the range of matching employees
 	 */
 	public static List<Employee> findBynameSalary(
-		String name, Float salary, int start, int end) {
+		String name, long salary, int start, int end) {
 
 		return getPersistence().findBynameSalary(name, salary, start, end);
 	}
@@ -1109,7 +1109,7 @@ public class EmployeeUtil {
 	 * @return the ordered range of matching employees
 	 */
 	public static List<Employee> findBynameSalary(
-		String name, Float salary, int start, int end,
+		String name, long salary, int start, int end,
 		OrderByComparator<Employee> orderByComparator) {
 
 		return getPersistence().findBynameSalary(
@@ -1132,7 +1132,7 @@ public class EmployeeUtil {
 	 * @return the ordered range of matching employees
 	 */
 	public static List<Employee> findBynameSalary(
-		String name, Float salary, int start, int end,
+		String name, long salary, int start, int end,
 		OrderByComparator<Employee> orderByComparator, boolean useFinderCache) {
 
 		return getPersistence().findBynameSalary(
@@ -1149,7 +1149,7 @@ public class EmployeeUtil {
 	 * @throws NoSuchEmployeeException if a matching employee could not be found
 	 */
 	public static Employee findBynameSalary_First(
-			String name, Float salary,
+			String name, long salary,
 			OrderByComparator<Employee> orderByComparator)
 		throws com.liferay.training.employee.exception.NoSuchEmployeeException {
 
@@ -1166,7 +1166,7 @@ public class EmployeeUtil {
 	 * @return the first matching employee, or <code>null</code> if a matching employee could not be found
 	 */
 	public static Employee fetchBynameSalary_First(
-		String name, Float salary,
+		String name, long salary,
 		OrderByComparator<Employee> orderByComparator) {
 
 		return getPersistence().fetchBynameSalary_First(
@@ -1183,7 +1183,7 @@ public class EmployeeUtil {
 	 * @throws NoSuchEmployeeException if a matching employee could not be found
 	 */
 	public static Employee findBynameSalary_Last(
-			String name, Float salary,
+			String name, long salary,
 			OrderByComparator<Employee> orderByComparator)
 		throws com.liferay.training.employee.exception.NoSuchEmployeeException {
 
@@ -1200,7 +1200,7 @@ public class EmployeeUtil {
 	 * @return the last matching employee, or <code>null</code> if a matching employee could not be found
 	 */
 	public static Employee fetchBynameSalary_Last(
-		String name, Float salary,
+		String name, long salary,
 		OrderByComparator<Employee> orderByComparator) {
 
 		return getPersistence().fetchBynameSalary_Last(
@@ -1218,7 +1218,7 @@ public class EmployeeUtil {
 	 * @throws NoSuchEmployeeException if a employee with the primary key could not be found
 	 */
 	public static Employee[] findBynameSalary_PrevAndNext(
-			long empId, String name, Float salary,
+			long empId, String name, long salary,
 			OrderByComparator<Employee> orderByComparator)
 		throws com.liferay.training.employee.exception.NoSuchEmployeeException {
 
@@ -1232,7 +1232,7 @@ public class EmployeeUtil {
 	 * @param name the name
 	 * @param salary the salary
 	 */
-	public static void removeBynameSalary(String name, Float salary) {
+	public static void removeBynameSalary(String name, long salary) {
 		getPersistence().removeBynameSalary(name, salary);
 	}
 
@@ -1243,7 +1243,7 @@ public class EmployeeUtil {
 	 * @param salary the salary
 	 * @return the number of matching employees
 	 */
-	public static int countBynameSalary(String name, Float salary) {
+	public static int countBynameSalary(String name, long salary) {
 		return getPersistence().countBynameSalary(name, salary);
 	}
 

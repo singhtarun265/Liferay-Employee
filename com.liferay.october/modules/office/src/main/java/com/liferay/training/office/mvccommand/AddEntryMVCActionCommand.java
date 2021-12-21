@@ -50,11 +50,14 @@ public class AddEntryMVCActionCommand extends BaseMVCActionCommand {
 			if(edit.contentEquals("edit")) {
 				
 				long empId = Long.parseLong(request.getParameter("empId").toString());
+				String backUrl = request.getParameter("backUrl").toString();
 				System.out.println("Employeed ID"+empId);
 				officeApi.updateEmployeeOffice(userId, empId, name, jobTitle, phone, salary, deptId, projectId, serviceContext);
-				request.setAttribute("mvcRenderCommandName", "/searchContainers");	
+					
 				System.out.println("Data is updated");
 				SessionMessages.add(request, "employeeUpdated");
+				
+				sendRedirect(request, response, backUrl);
 				
 			}
 			else {

@@ -53,14 +53,14 @@ public class EmployeeServiceImpl extends EmployeeServiceBaseImpl {
 	 * access the employee remote service.
 	 */
 
-	public Employee addEmployee(long userId, String name, String jobTitle, String phoneNo, float salary, long deptId,
+	public Employee addEmployee(long userId, String name, String jobTitle, String phoneNo, long salary, long deptId,
 			long projectId, ServiceContext serviceContext) throws PortalException {
 		
 		return employeeLocalService.addEmployee(userId, name, jobTitle, phoneNo, salary, deptId, projectId,
 				serviceContext);
 	}
 
-	public Employee updateEmployee(long userId, long empId, String name, String jobTitle, String phoneNo, float salary,
+	public Employee updateEmployee(long userId, long empId, String name, String jobTitle, String phoneNo, long salary,
 			long deptId, long projectId, ServiceContext serviceContext) throws PortalException {
 		return employeeLocalService.updateEmployee(userId, empId, name, jobTitle, phoneNo, salary, deptId, projectId,
 				serviceContext);
@@ -74,12 +74,12 @@ public class EmployeeServiceImpl extends EmployeeServiceBaseImpl {
 		return employeeLocalService.getEmployee(empId);
 	}
 
-	public int getEmployeesCount(String name, float salary) {
+	public int getEmployeesCount(String name, long salary) {
 
 		return employeeLocalService.getEmployeesCount(name, salary);
 	}
 
-	public List<Employee> getEmployees(long deptId, float salary) {
+	public List<Employee> getEmployees(long deptId, long salary) {
 
 		return employeeLocalService.getEmployees(deptId, salary);
 	}

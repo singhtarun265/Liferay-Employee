@@ -31,10 +31,11 @@ public class EditEntryMVCRenderCommand implements MVCRenderCommand {
 		
 		
 		long empId = Long.parseLong(request.getParameter("empId").toString());
+		String backUrl = request.getParameter("backUrl").toString();
 		
 		try {
 			request.setAttribute("employee",officeApi.getEmployeeOffice(empId));
-			
+			request.setAttribute("currentUrl", backUrl);
 		} catch (PortalException e) {
 			
 			e.printStackTrace();

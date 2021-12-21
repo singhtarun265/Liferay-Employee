@@ -12,23 +12,23 @@ import java.util.List;
  */
 public interface OfficeApi {
 	
-	public Employee addEmployeeOffice(long userId, String name, String jobTitle, String phoneNo, float salary, long deptId,
+	public Employee addEmployeeOffice(long userId, String name, String jobTitle, String phoneNo, long salary, long deptId,
 			long projectId, ServiceContext serviceContext) throws PortalException;
 
-	public Employee updateEmployeeOffice(long userId, long empId, String name, String jobTitle, String phoneNo, float salary,
+	public Employee updateEmployeeOffice(long userId, long empId, String name, String jobTitle, String phoneNo, long salary,
 			long deptId, long projectId, ServiceContext serviceContext) throws PortalException;
 	
 	public Employee deleteEmployeeOffice(long empId) throws PortalException ;
 
 	public Employee getEmployeeOffice(long empId) throws PortalException ;
 
-	public List<Employee> getEmployeesOffice(long deptId, float salary) ;
+	public List<Employee> getEmployeesOffice(long deptId, long salary) ;
 
-	public List<Employee> getEmployeesOffice(long deptId, float salary, int start, int end);
+	public List<Employee> getEmployeesOffice(long deptId, long salary, int start, int end);
 
-	public List<Employee> getEmployeesOffice(long deptId, float salary, int start, int end, OrderByComparator<Employee> obc);
+	public List<Employee> getEmployeesOffice(long deptId, long salary, int start, int end, OrderByComparator<Employee> obc);
 
-	public int getEmployeesCountOffice(String name, float salary) ;
+	public int getEmployeesCountOffice(String name, long salary) ;
 
 	public List<Employee> getEmployeeByGroupIdAndUserIdOffice(long userId, long groupId) ;
 

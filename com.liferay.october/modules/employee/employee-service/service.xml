@@ -27,7 +27,7 @@
 		<column name="name" type="String"></column>
         <column name="jobTitle" type="String"></column>
         <column name="phoneNo" type="String"></column>
-        <column name="salary" type="Float"></column>
+        <column name="salary" type="long"></column>
         <column name="deptId" type="long"></column>
         <column name="projectId" type="long"></column>
 

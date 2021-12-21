@@ -21,7 +21,7 @@ create table Employee_Employee (
 	name VARCHAR(75) null,
 	jobTitle VARCHAR(75) null,
 	phoneNo VARCHAR(75) null,
-	salary DOUBLE,
+	salary LONG,
 	deptId LONG,
 	projectId LONG
 );

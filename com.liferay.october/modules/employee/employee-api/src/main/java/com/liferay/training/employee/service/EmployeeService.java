@@ -54,7 +54,7 @@ public interface EmployeeService extends BaseService {
 	 */
 	public Employee addEmployee(
 			long userId, String name, String jobTitle, String phoneNo,
-			float salary, long deptId, long projectId,
+			long salary, long deptId, long projectId,
 			ServiceContext serviceContext)
 		throws PortalException;
 
@@ -75,10 +75,10 @@ public interface EmployeeService extends BaseService {
 		String userName, String jobTitle);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public List<Employee> getEmployees(long deptId, float salary);
+	public List<Employee> getEmployees(long deptId, long salary);
 
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public int getEmployeesCount(String name, float salary);
+	public int getEmployeesCount(String name, long salary);
 
 	/**
 	 * Returns the OSGi service identifier.
@@ -89,7 +89,7 @@ public interface EmployeeService extends BaseService {
 
 	public Employee updateEmployee(
 			long userId, long empId, String name, String jobTitle,
-			String phoneNo, float salary, long deptId, long projectId,
+			String phoneNo, long salary, long deptId, long projectId,
 			ServiceContext serviceContext)
 		throws PortalException;
 

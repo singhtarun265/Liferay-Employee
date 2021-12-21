@@ -60,7 +60,7 @@ public class EmployeeLocalServiceImpl extends EmployeeLocalServiceBaseImpl {
 	 * <code>com.liferay.training.employee.service.EmployeeLocalServiceUtil</code>.
 	 */
 
-	public Employee addEmployee(long userId, String name, String jobTitle, String phoneNo, float salary, long deptId,
+	public Employee addEmployee(long userId, String name, String jobTitle, String phoneNo, long salary, long deptId,
 			long projectId, ServiceContext serviceContext) throws PortalException {
 		
 	//ThemeDisplay themeDisplay = (ThemeDisplay) serviceContext.getAttribute(WebKeys.THEME_DISPLAY);
@@ -97,13 +97,14 @@ public class EmployeeLocalServiceImpl extends EmployeeLocalServiceBaseImpl {
 
 	}
 
-	public Employee updateEmployee(long userId, long empId, String name, String jobTitle, String phoneNo, float salary,
+	public Employee updateEmployee(long userId, long empId, String name, String jobTitle, String phoneNo, long salary,
 			long deptId, long projectId, ServiceContext serviceContext) throws PortalException {
 
 		Employee employee = employeePersistence.findByPrimaryKey(empId);
 
 		User user = userLocalService.getUserById(userId);
 
+		
 		employee.setUserId(userId);
 		employee.setUserName(user.getFullName());
 		employee.setModifiedDate(serviceContext.getModifiedDate());
@@ -140,22 +141,22 @@ public class EmployeeLocalServiceImpl extends EmployeeLocalServiceBaseImpl {
 		return employeePersistence.findByPrimaryKey(empId);
 	}
 
-	public List<Employee> getEmployees(long deptId, float salary) {
+	public List<Employee> getEmployees(long deptId, long salary) {
 
 		return employeePersistence.findBydeptSalary(deptId, salary);
 	}
 
-	public List<Employee> getEmployees(long deptId, float salary, int start, int end) {
+	public List<Employee> getEmployees(long deptId, long salary, int start, int end) {
 
 		return employeePersistence.findBydeptSalary(deptId, salary, start, end);
 	}
 
-	public List<Employee> getEmployees(long deptId, float salary, int start, int end, OrderByComparator<Employee> obc) {
+	public List<Employee> getEmployees(long deptId, long salary, int start, int end, OrderByComparator<Employee> obc) {
 
 		return employeePersistence.findBydeptSalary(deptId, salary, start, end, obc);
 	}
 
-	public int getEmployeesCount(String name, float salary) {
+	public int getEmployeesCount(String name, long salary) {
 
 		return employeePersistence.countBynameSalary(name, salary);
 	}

@@ -33,7 +33,7 @@ public class EmployeeServiceWrapper
 	@Override
 	public com.liferay.training.employee.model.Employee addEmployee(
 			long userId, String name, String jobTitle, String phoneNo,
-			float salary, long deptId, long projectId,
+			long salary, long deptId, long projectId,
 			com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -83,13 +83,13 @@ public class EmployeeServiceWrapper
 
 	@Override
 	public java.util.List<com.liferay.training.employee.model.Employee>
-		getEmployees(long deptId, float salary) {
+		getEmployees(long deptId, long salary) {
 
 		return _employeeService.getEmployees(deptId, salary);
 	}
 
 	@Override
-	public int getEmployeesCount(String name, float salary) {
+	public int getEmployeesCount(String name, long salary) {
 		return _employeeService.getEmployeesCount(name, salary);
 	}
 
@@ -106,7 +106,7 @@ public class EmployeeServiceWrapper
 	@Override
 	public com.liferay.training.employee.model.Employee updateEmployee(
 			long userId, long empId, String name, String jobTitle,
-			String phoneNo, float salary, long deptId, long projectId,
+			String phoneNo, long salary, long deptId, long projectId,
 			com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 

@@ -52,7 +52,7 @@ public class EmployeeLocalServiceWrapper
 	@Override
 	public com.liferay.training.employee.model.Employee addEmployee(
 			long userId, String name, String jobTitle, String phoneNo,
-			float salary, long deptId, long projectId,
+			long salary, long deptId, long projectId,
 			com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 
@@ -328,14 +328,14 @@ public class EmployeeLocalServiceWrapper
 
 	@Override
 	public java.util.List<com.liferay.training.employee.model.Employee>
-		getEmployees(long deptId, float salary) {
+		getEmployees(long deptId, long salary) {
 
 		return _employeeLocalService.getEmployees(deptId, salary);
 	}
 
 	@Override
 	public java.util.List<com.liferay.training.employee.model.Employee>
-		getEmployees(long deptId, float salary, int start, int end) {
+		getEmployees(long deptId, long salary, int start, int end) {
 
 		return _employeeLocalService.getEmployees(deptId, salary, start, end);
 	}
@@ -343,7 +343,7 @@ public class EmployeeLocalServiceWrapper
 	@Override
 	public java.util.List<com.liferay.training.employee.model.Employee>
 		getEmployees(
-			long deptId, float salary, int start, int end,
+			long deptId, long salary, int start, int end,
 			com.liferay.portal.kernel.util.OrderByComparator
 				<com.liferay.training.employee.model.Employee> obc) {
 
@@ -399,7 +399,7 @@ public class EmployeeLocalServiceWrapper
 	}
 
 	@Override
-	public int getEmployeesCount(String name, float salary) {
+	public int getEmployeesCount(String name, long salary) {
 		return _employeeLocalService.getEmployeesCount(name, salary);
 	}
 
@@ -461,7 +461,7 @@ public class EmployeeLocalServiceWrapper
 	@Override
 	public com.liferay.training.employee.model.Employee updateEmployee(
 			long userId, long empId, String name, String jobTitle,
-			String phoneNo, float salary, long deptId, long projectId,
+			String phoneNo, long salary, long deptId, long projectId,
 			com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException {
 

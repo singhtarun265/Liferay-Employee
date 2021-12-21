@@ -65,7 +65,7 @@ public class EmployeeServiceSoap {
 
 	public static com.liferay.training.employee.model.EmployeeSoap addEmployee(
 			long userId, String name, String jobTitle, String phoneNo,
-			float salary, long deptId, long projectId,
+			long salary, long deptId, long projectId,
 			com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws RemoteException {
 
@@ -88,7 +88,7 @@ public class EmployeeServiceSoap {
 	public static com.liferay.training.employee.model.EmployeeSoap
 			updateEmployee(
 				long userId, long empId, String name, String jobTitle,
-				String phoneNo, float salary, long deptId, long projectId,
+				String phoneNo, long salary, long deptId, long projectId,
 				com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws RemoteException {
 
@@ -144,7 +144,7 @@ public class EmployeeServiceSoap {
 		}
 	}
 
-	public static int getEmployeesCount(String name, float salary)
+	public static int getEmployeesCount(String name, long salary)
 		throws RemoteException {
 
 		try {
@@ -161,7 +161,7 @@ public class EmployeeServiceSoap {
 	}
 
 	public static com.liferay.training.employee.model.EmployeeSoap[]
-			getEmployees(long deptId, float salary)
+			getEmployees(long deptId, long salary)
 		throws RemoteException {
 
 		try {

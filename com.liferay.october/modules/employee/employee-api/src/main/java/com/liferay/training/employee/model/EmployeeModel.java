@@ -254,14 +254,14 @@ public interface EmployeeModel
 	 *
 	 * @return the salary of this employee
 	 */
-	public Float getSalary();
+	public long getSalary();
 
 	/**
 	 * Sets the salary of this employee.
 	 *
 	 * @param salary the salary of this employee
 	 */
-	public void setSalary(Float salary);
+	public void setSalary(long salary);
 
 	/**
 	 * Returns the dept ID of this employee.

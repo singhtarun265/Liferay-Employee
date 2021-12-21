@@ -536,7 +536,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @param salary the salary
 	 * @return the matching employees
 	 */
-	public java.util.List<Employee> findBydeptSalary(long deptId, Float salary);
+	public java.util.List<Employee> findBydeptSalary(long deptId, long salary);
 
 	/**
 	 * Returns a range of all the employees where deptId = &#63; and salary = &#63;.
@@ -552,7 +552,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @return the range of matching employees
 	 */
 	public java.util.List<Employee> findBydeptSalary(
-		long deptId, Float salary, int start, int end);
+		long deptId, long salary, int start, int end);
 
 	/**
 	 * Returns an ordered range of all the employees where deptId = &#63; and salary = &#63;.
@@ -569,7 +569,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @return the ordered range of matching employees
 	 */
 	public java.util.List<Employee> findBydeptSalary(
-		long deptId, Float salary, int start, int end,
+		long deptId, long salary, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator<Employee>
 			orderByComparator);
 
@@ -589,7 +589,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @return the ordered range of matching employees
 	 */
 	public java.util.List<Employee> findBydeptSalary(
-		long deptId, Float salary, int start, int end,
+		long deptId, long salary, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator<Employee>
 			orderByComparator,
 		boolean useFinderCache);
@@ -604,7 +604,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @throws NoSuchEmployeeException if a matching employee could not be found
 	 */
 	public Employee findBydeptSalary_First(
-			long deptId, Float salary,
+			long deptId, long salary,
 			com.liferay.portal.kernel.util.OrderByComparator<Employee>
 				orderByComparator)
 		throws NoSuchEmployeeException;
@@ -618,7 +618,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @return the first matching employee, or <code>null</code> if a matching employee could not be found
 	 */
 	public Employee fetchBydeptSalary_First(
-		long deptId, Float salary,
+		long deptId, long salary,
 		com.liferay.portal.kernel.util.OrderByComparator<Employee>
 			orderByComparator);
 
@@ -632,7 +632,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @throws NoSuchEmployeeException if a matching employee could not be found
 	 */
 	public Employee findBydeptSalary_Last(
-			long deptId, Float salary,
+			long deptId, long salary,
 			com.liferay.portal.kernel.util.OrderByComparator<Employee>
 				orderByComparator)
 		throws NoSuchEmployeeException;
@@ -646,7 +646,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @return the last matching employee, or <code>null</code> if a matching employee could not be found
 	 */
 	public Employee fetchBydeptSalary_Last(
-		long deptId, Float salary,
+		long deptId, long salary,
 		com.liferay.portal.kernel.util.OrderByComparator<Employee>
 			orderByComparator);
 
@@ -661,7 +661,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @throws NoSuchEmployeeException if a employee with the primary key could not be found
 	 */
 	public Employee[] findBydeptSalary_PrevAndNext(
-			long empId, long deptId, Float salary,
+			long empId, long deptId, long salary,
 			com.liferay.portal.kernel.util.OrderByComparator<Employee>
 				orderByComparator)
 		throws NoSuchEmployeeException;
@@ -672,7 +672,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @param deptId the dept ID
 	 * @param salary the salary
 	 */
-	public void removeBydeptSalary(long deptId, Float salary);
+	public void removeBydeptSalary(long deptId, long salary);
 
 	/**
 	 * Returns the number of employees where deptId = &#63; and salary = &#63;.
@@ -681,7 +681,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @param salary the salary
 	 * @return the number of matching employees
 	 */
-	public int countBydeptSalary(long deptId, Float salary);
+	public int countBydeptSalary(long deptId, long salary);
 
 	/**
 	 * Returns all the employees where projectId = &#63; and salary = &#63;.
@@ -691,7 +691,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @return the matching employees
 	 */
 	public java.util.List<Employee> findByprojectSalary(
-		long projectId, Float salary);
+		long projectId, long salary);
 
 	/**
 	 * Returns a range of all the employees where projectId = &#63; and salary = &#63;.
@@ -707,7 +707,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @return the range of matching employees
 	 */
 	public java.util.List<Employee> findByprojectSalary(
-		long projectId, Float salary, int start, int end);
+		long projectId, long salary, int start, int end);
 
 	/**
 	 * Returns an ordered range of all the employees where projectId = &#63; and salary = &#63;.
@@ -724,7 +724,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @return the ordered range of matching employees
 	 */
 	public java.util.List<Employee> findByprojectSalary(
-		long projectId, Float salary, int start, int end,
+		long projectId, long salary, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator<Employee>
 			orderByComparator);
 
@@ -744,7 +744,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @return the ordered range of matching employees
 	 */
 	public java.util.List<Employee> findByprojectSalary(
-		long projectId, Float salary, int start, int end,
+		long projectId, long salary, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator<Employee>
 			orderByComparator,
 		boolean useFinderCache);
@@ -759,7 +759,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @throws NoSuchEmployeeException if a matching employee could not be found
 	 */
 	public Employee findByprojectSalary_First(
-			long projectId, Float salary,
+			long projectId, long salary,
 			com.liferay.portal.kernel.util.OrderByComparator<Employee>
 				orderByComparator)
 		throws NoSuchEmployeeException;
@@ -773,7 +773,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @return the first matching employee, or <code>null</code> if a matching employee could not be found
 	 */
 	public Employee fetchByprojectSalary_First(
-		long projectId, Float salary,
+		long projectId, long salary,
 		com.liferay.portal.kernel.util.OrderByComparator<Employee>
 			orderByComparator);
 
@@ -787,7 +787,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @throws NoSuchEmployeeException if a matching employee could not be found
 	 */
 	public Employee findByprojectSalary_Last(
-			long projectId, Float salary,
+			long projectId, long salary,
 			com.liferay.portal.kernel.util.OrderByComparator<Employee>
 				orderByComparator)
 		throws NoSuchEmployeeException;
@@ -801,7 +801,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @return the last matching employee, or <code>null</code> if a matching employee could not be found
 	 */
 	public Employee fetchByprojectSalary_Last(
-		long projectId, Float salary,
+		long projectId, long salary,
 		com.liferay.portal.kernel.util.OrderByComparator<Employee>
 			orderByComparator);
 
@@ -816,7 +816,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @throws NoSuchEmployeeException if a employee with the primary key could not be found
 	 */
 	public Employee[] findByprojectSalary_PrevAndNext(
-			long empId, long projectId, Float salary,
+			long empId, long projectId, long salary,
 			com.liferay.portal.kernel.util.OrderByComparator<Employee>
 				orderByComparator)
 		throws NoSuchEmployeeException;
@@ -827,7 +827,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @param projectId the project ID
 	 * @param salary the salary
 	 */
-	public void removeByprojectSalary(long projectId, Float salary);
+	public void removeByprojectSalary(long projectId, long salary);
 
 	/**
 	 * Returns the number of employees where projectId = &#63; and salary = &#63;.
@@ -836,7 +836,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @param salary the salary
 	 * @return the number of matching employees
 	 */
-	public int countByprojectSalary(long projectId, Float salary);
+	public int countByprojectSalary(long projectId, long salary);
 
 	/**
 	 * Returns all the employees where name = &#63; and salary = &#63;.
@@ -845,7 +845,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @param salary the salary
 	 * @return the matching employees
 	 */
-	public java.util.List<Employee> findBynameSalary(String name, Float salary);
+	public java.util.List<Employee> findBynameSalary(String name, long salary);
 
 	/**
 	 * Returns a range of all the employees where name = &#63; and salary = &#63;.
@@ -861,7 +861,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @return the range of matching employees
 	 */
 	public java.util.List<Employee> findBynameSalary(
-		String name, Float salary, int start, int end);
+		String name, long salary, int start, int end);
 
 	/**
 	 * Returns an ordered range of all the employees where name = &#63; and salary = &#63;.
@@ -878,7 +878,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @return the ordered range of matching employees
 	 */
 	public java.util.List<Employee> findBynameSalary(
-		String name, Float salary, int start, int end,
+		String name, long salary, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator<Employee>
 			orderByComparator);
 
@@ -898,7 +898,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @return the ordered range of matching employees
 	 */
 	public java.util.List<Employee> findBynameSalary(
-		String name, Float salary, int start, int end,
+		String name, long salary, int start, int end,
 		com.liferay.portal.kernel.util.OrderByComparator<Employee>
 			orderByComparator,
 		boolean useFinderCache);
@@ -913,7 +913,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @throws NoSuchEmployeeException if a matching employee could not be found
 	 */
 	public Employee findBynameSalary_First(
-			String name, Float salary,
+			String name, long salary,
 			com.liferay.portal.kernel.util.OrderByComparator<Employee>
 				orderByComparator)
 		throws NoSuchEmployeeException;
@@ -927,7 +927,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @return the first matching employee, or <code>null</code> if a matching employee could not be found
 	 */
 	public Employee fetchBynameSalary_First(
-		String name, Float salary,
+		String name, long salary,
 		com.liferay.portal.kernel.util.OrderByComparator<Employee>
 			orderByComparator);
 
@@ -941,7 +941,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @throws NoSuchEmployeeException if a matching employee could not be found
 	 */
 	public Employee findBynameSalary_Last(
-			String name, Float salary,
+			String name, long salary,
 			com.liferay.portal.kernel.util.OrderByComparator<Employee>
 				orderByComparator)
 		throws NoSuchEmployeeException;
@@ -955,7 +955,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @return the last matching employee, or <code>null</code> if a matching employee could not be found
 	 */
 	public Employee fetchBynameSalary_Last(
-		String name, Float salary,
+		String name, long salary,
 		com.liferay.portal.kernel.util.OrderByComparator<Employee>
 			orderByComparator);
 
@@ -970,7 +970,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @throws NoSuchEmployeeException if a employee with the primary key could not be found
 	 */
 	public Employee[] findBynameSalary_PrevAndNext(
-			long empId, String name, Float salary,
+			long empId, String name, long salary,
 			com.liferay.portal.kernel.util.OrderByComparator<Employee>
 				orderByComparator)
 		throws NoSuchEmployeeException;
@@ -981,7 +981,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @param name the name
 	 * @param salary the salary
 	 */
-	public void removeBynameSalary(String name, Float salary);
+	public void removeBynameSalary(String name, long salary);
 
 	/**
 	 * Returns the number of employees where name = &#63; and salary = &#63;.
@@ -990,7 +990,7 @@ public interface EmployeePersistence extends BasePersistence<Employee> {
 	 * @param salary the salary
 	 * @return the number of matching employees
 	 */
-	public int countBynameSalary(String name, Float salary);
+	public int countBynameSalary(String name, long salary);
 
 	/**
 	 * Caches the employee in the entity cache if it is enabled.

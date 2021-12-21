@@ -79,7 +79,7 @@ public class EmployeeModelImpl
 		{"userId", Types.BIGINT}, {"userName", Types.VARCHAR},
 		{"createDate", Types.TIMESTAMP}, {"modifiedDate", Types.TIMESTAMP},
 		{"name", Types.VARCHAR}, {"jobTitle", Types.VARCHAR},
-		{"phoneNo", Types.VARCHAR}, {"salary", Types.FLOAT},
+		{"phoneNo", Types.VARCHAR}, {"salary", Types.BIGINT},
 		{"deptId", Types.BIGINT}, {"projectId", Types.BIGINT}
 	};
 
@@ -98,13 +98,13 @@ public class EmployeeModelImpl
 		TABLE_COLUMNS_MAP.put("name", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("jobTitle", Types.VARCHAR);
 		TABLE_COLUMNS_MAP.put("phoneNo", Types.VARCHAR);
-		TABLE_COLUMNS_MAP.put("salary", Types.FLOAT);
+		TABLE_COLUMNS_MAP.put("salary", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("deptId", Types.BIGINT);
 		TABLE_COLUMNS_MAP.put("projectId", Types.BIGINT);
 	}
 
 	public static final String TABLE_SQL_CREATE =
-		"create table Employee_Employee (uuid_ VARCHAR(75) null,empId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,name VARCHAR(75) null,jobTitle VARCHAR(75) null,phoneNo VARCHAR(75) null,salary DOUBLE,deptId LONG,projectId LONG)";
+		"create table Employee_Employee (uuid_ VARCHAR(75) null,empId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,name VARCHAR(75) null,jobTitle VARCHAR(75) null,phoneNo VARCHAR(75) null,salary LONG,deptId LONG,projectId LONG)";
 
 	public static final String TABLE_SQL_DROP = "drop table Employee_Employee";
 
@@ -389,7 +389,7 @@ public class EmployeeModelImpl
 			"phoneNo", (BiConsumer<Employee, String>)Employee::setPhoneNo);
 		attributeGetterFunctions.put("salary", Employee::getSalary);
 		attributeSetterBiConsumers.put(
-			"salary", (BiConsumer<Employee, Float>)Employee::setSalary);
+			"salary", (BiConsumer<Employee, Long>)Employee::setSalary);
 		attributeGetterFunctions.put("deptId", Employee::getDeptId);
 		attributeSetterBiConsumers.put(
 			"deptId", (BiConsumer<Employee, Long>)Employee::setDeptId);
@@ -654,12 +654,12 @@ public class EmployeeModelImpl
 
 	@JSON
 	@Override
-	public Float getSalary() {
+	public long getSalary() {
 		return _salary;
 	}
 
 	@Override
-	public void setSalary(Float salary) {
+	public void setSalary(long salary) {
 		if (_columnOriginalValues == Collections.EMPTY_MAP) {
 			_setColumnOriginalValues();
 		}
@@ -672,9 +672,8 @@ public class EmployeeModelImpl
 	 *             #getColumnOriginalValue(String)}
 	 */
 	@Deprecated
-	public Float getOriginalSalary() {
-		return GetterUtil.getFloat(
-			this.<Float>getColumnOriginalValue("salary"));
+	public long getOriginalSalary() {
+		return GetterUtil.getLong(this.<Long>getColumnOriginalValue("salary"));
 	}
 
 	@JSON
@@ -943,11 +942,7 @@ public class EmployeeModelImpl
 			employeeCacheModel.phoneNo = null;
 		}
 
-		Float salary = getSalary();
-
-		if (salary != null) {
-			employeeCacheModel.salary = salary;
-		}
+		employeeCacheModel.salary = getSalary();
 
 		employeeCacheModel.deptId = getDeptId();
 
@@ -1038,7 +1033,7 @@ public class EmployeeModelImpl
 	private String _name;
 	private String _jobTitle;
 	private String _phoneNo;
-	private Float _salary;
+	private long _salary;
 	private long _deptId;
 	private long _projectId;
 

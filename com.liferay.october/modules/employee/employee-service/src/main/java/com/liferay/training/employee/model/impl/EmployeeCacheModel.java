@@ -181,7 +181,7 @@ public class EmployeeCacheModel
 		jobTitle = objectInput.readUTF();
 		phoneNo = objectInput.readUTF();
 
-		salary = objectInput.readFloat();
+		salary = objectInput.readLong();
 
 		deptId = objectInput.readLong();
 
@@ -236,7 +236,7 @@ public class EmployeeCacheModel
 			objectOutput.writeUTF(phoneNo);
 		}
 
-		objectOutput.writeFloat(salary);
+		objectOutput.writeLong(salary);
 
 		objectOutput.writeLong(deptId);
 
@@ -254,7 +254,7 @@ public class EmployeeCacheModel
 	public String name;
 	public String jobTitle;
 	public String phoneNo;
-	public float salary;
+	public long salary;
 	public long deptId;
 	public long projectId;
 

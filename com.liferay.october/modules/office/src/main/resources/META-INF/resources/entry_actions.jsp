@@ -12,6 +12,7 @@ EmployeeModel entry = (EmployeeModel)row.getObject();
         <portlet:renderURL var="editURL">
             <portlet:param name="empId" value="<%= String.valueOf(entry.getEmpId()) %>" />
             <portlet:param name="mvcRenderCommandName" value="/editEntry" />
+            <portlet:param name="backUrl" value="${currentUrl}" />
         </portlet:renderURL>
 
         <liferay-ui:icon image="edit" message="Edit"   url="<%=editURL.toString() %>" />
@@ -19,7 +20,7 @@ EmployeeModel entry = (EmployeeModel)row.getObject();
         <portlet:actionURL name="/deleteEntry" var="deleteURL">
             <portlet:param name="empId" value="<%= String.valueOf(entry.getEmpId()) %>" />
             <portlet:param name="deleteRow"  value="delete" />
-          
+            <portlet:param name="backUrl" value="${currentUrl}" />
         </portlet:actionURL>
 
 

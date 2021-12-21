@@ -47,9 +47,6 @@ public class SearchEntryMVCRenderCommand implements MVCRenderCommand {
 		
 		searchContainer = new SearchContainer<>(renderRequest, null, null, SearchContainer.DEFAULT_CUR_PARAM, SearchContainer.DEFAULT_DELTA, iteratorURL, null, "");
 		searchContainer.setEmptyResultsMessage("There are no records to display");
-//		searchContainer.setDelta(5);
-//		searchContainer.setDeltaConfigurable(true);
-		
 		
 		List<Employee> employeeList=officeApi.getAllEmployeesInformationOffice(searchContainer.getStart(),searchContainer.getEnd());
 		
@@ -59,18 +56,13 @@ public class SearchEntryMVCRenderCommand implements MVCRenderCommand {
 		searchContainer.setTotal(count);
 		
 		renderRequest.setAttribute("searchContainer", searchContainer);
-			
+		renderRequest.setAttribute("currentUrl", iteratorURL);
 		
-//		renderRequest.setAttribute("employeeList",employeeList );
-//		renderRequest.setAttribute("count",count );
+
 		
 		 SessionMessages.add(renderRequest,"employee-form-success");
 		 log.info("Added employeelist and count attribute to search container"); 
-		
-		//System.out.println("Hello search container");
-	//	response.setRenderParameter("mvcPath", "/viewEmployee.jsp");
-		
-		// renderRequest.setAttribute("jspPath", "/searchContainer.jsp");
+	
 		return "/searchContainer.jsp";
 	}
 

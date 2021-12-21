@@ -60,7 +60,7 @@ public class EmployeeLocalServiceUtil {
 
 	public static Employee addEmployee(
 			long userId, String name, String jobTitle, String phoneNo,
-			float salary, long deptId, long projectId,
+			long salary, long deptId, long projectId,
 			com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws PortalException {
 
@@ -292,18 +292,18 @@ public class EmployeeLocalServiceUtil {
 		return getService().getEmployees(start, end);
 	}
 
-	public static List<Employee> getEmployees(long deptId, float salary) {
+	public static List<Employee> getEmployees(long deptId, long salary) {
 		return getService().getEmployees(deptId, salary);
 	}
 
 	public static List<Employee> getEmployees(
-		long deptId, float salary, int start, int end) {
+		long deptId, long salary, int start, int end) {
 
 		return getService().getEmployees(deptId, salary, start, end);
 	}
 
 	public static List<Employee> getEmployees(
-		long deptId, float salary, int start, int end,
+		long deptId, long salary, int start, int end,
 		OrderByComparator<Employee> obc) {
 
 		return getService().getEmployees(deptId, salary, start, end, obc);
@@ -349,7 +349,7 @@ public class EmployeeLocalServiceUtil {
 		return getService().getEmployeesCount();
 	}
 
-	public static int getEmployeesCount(String name, float salary) {
+	public static int getEmployeesCount(String name, long salary) {
 		return getService().getEmployeesCount(name, salary);
 	}
 
@@ -402,7 +402,7 @@ public class EmployeeLocalServiceUtil {
 
 	public static Employee updateEmployee(
 			long userId, long empId, String name, String jobTitle,
-			String phoneNo, float salary, long deptId, long projectId,
+			String phoneNo, long salary, long deptId, long projectId,
 			com.liferay.portal.kernel.service.ServiceContext serviceContext)
 		throws PortalException {
 

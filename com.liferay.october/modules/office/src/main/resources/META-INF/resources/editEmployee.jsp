@@ -12,6 +12,7 @@
 <portlet:actionURL name="/editCurrentEntry" var="editEntryURL">
  	<portlet:param name="editEntry" value="edit" />
  	<portlet:param name="empId" value="${employee.empId}" />
+ 	<portlet:param name="backUrl" value="${currentUrl}" />
 </portlet:actionURL>
 
 <liferay-ui:success key="employeeUpdated" message="successfully" />
@@ -88,6 +89,5 @@
 	<aui:button-row>
 		<aui:button type="submit"></aui:button>
 		<aui:button type="cancel" onClick="<%=viewURL.toString()%>"></aui:button>
-		<aui:button onClick="<%= viewEntryURL.toString()%>"	value="View All Employees"></aui:button>
 	</aui:button-row>
 </aui:form>
